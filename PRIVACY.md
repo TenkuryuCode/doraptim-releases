@@ -14,7 +14,9 @@ When the browser starts a supported download (HTTP or HTTPS, not from a private 
 - the suggested filename;
 - the referrer and the browser's user-agent text.
 
-The extension does not read or send cookies, passwords, browsing history, or page contents, and it requests no host permissions. Its settings (whether takeover is on, and the minimum file size) are kept in Chrome's extension storage on the device.
+The extension does not read or send cookies, passwords, browsing history, or page contents, and it requests no host permissions. Its settings (whether takeover is on, the minimum file size, and whether to name files after the page) are kept in Chrome's extension storage on the device.
+
+Naming files after the page is off by default. When the user turns it on, Chrome asks for the `tabs` permission, which lets the extension read the titles and addresses of open tabs. The extension uses it only when a captured download has a meaningless name, to read the title of the page the download came from, and only to suggest a name in the preview window. The title is kept in the browser's memory until the preview closes; only the name the user confirms reaches the engine. Turning the setting off gives the permission back.
 
 ## What the engine keeps
 
@@ -25,6 +27,7 @@ The engine may process and store, in a SQLite journal on the device:
 - response metadata such as filename, size, content type, ETag, and Last-Modified;
 - queue state, progress, retry state, destination category, and errors;
 - optional expected and computed SHA-256 values.
+- the download folder and category subfolder names the user chose, a folder chosen for a single download, and the number of parallel downloads and speed limit the user set.
 
 The journal can contain sensitive URLs, because some sites put tokens in them. Protect it with normal operating-system account permissions and do not share it. Referrers and user agents are used for the download and are not written to the journal. The daemon also keeps a private local file with a random access token, replaced at every start.
 
