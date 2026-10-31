@@ -11,9 +11,27 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
    - **macOS, Apple Silicon (M1 or later):** `doraptim-<version>-macos-arm64.pkg`
    - **macOS, Intel:** `doraptim-<version>-macos-x86_64.pkg`
 2. Run it. It installs the DoRaptim engine for your user account and connects it to the DoRaptim browser extension.
-3. Install the DoRaptim extension for Chrome.
+3. Install the DoRaptim extension for Chrome, as described below.
 
-The `.tar.gz` and `.zip` archives contain only the engine program, for developers.
+The `.tar.gz` archives and the `doraptim-<version>-x86_64-pc-windows-msvc.zip` archive contain only the engine program, for developers.
+
+### Install the Chrome extension (developer preview)
+
+The extension is not in the Chrome Web Store yet. Until it is, each release includes it as `doraptim-extension-<version>-chrome.zip`, and you load it into Chrome yourself:
+
+1. Download `doraptim-extension-<version>-chrome.zip` from the same release as the installer.
+2. Unzip it into a folder you will keep, for example `Documents/DoRaptim extension`. Chrome loads the extension from that folder, so do not delete or move it.
+3. Open `chrome://extensions` in Chrome.
+4. Turn on **Developer mode** (top right).
+5. Choose **Load unpacked** and select the unzipped folder (the one that contains `manifest.json`).
+6. The extension's ID must be `omaocaakodbohegmpboammlafnagpnpd`. The installer connects the engine only to that ID.
+
+Good to know:
+
+- Chrome does not update this extension automatically. For a new release, unzip the new ZIP into the same folder (replacing the old files) and choose the reload button on the extension's card.
+- Chrome may show a warning about developer-mode extensions when it starts. That is expected for a developer preview.
+- Install it only from this repository's Releases page, and check the ID above.
+- Some managed (work or school) browsers block developer-mode extensions.
 
 ### The builds are not code-signed yet
 
