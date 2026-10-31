@@ -15,6 +15,29 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 
 The `.tar.gz` archives and the `doraptim-<version>-x86_64-pc-windows-msvc.zip` archive contain only the engine program, for developers.
 
+### Or install with a package manager
+
+**Homebrew** (macOS, or Linux on x86-64):
+
+```sh
+brew tap tenkuryucode/doraptim https://github.com/TenkuryuCode/doraptim-releases
+brew install doraptim
+doraptim setup
+```
+
+The `brew tap` line is needed once. `doraptim setup` connects the engine to the browser extension.
+
+**Scoop** (Windows):
+
+```powershell
+scoop bucket add doraptim https://github.com/TenkuryuCode/doraptim-releases
+scoop install doraptim
+```
+
+Scoop connects the engine to the browser extension by itself. **winget** (`winget install TenkuryuCode.DoRaptim`) will follow once Microsoft has accepted the package.
+
+With any of them, install the Chrome extension as described next.
+
 ### Install the Chrome extension (developer preview)
 
 The extension is not in the Chrome Web Store yet. Until it is, each release includes it as `doraptim-extension-<version>-chrome.zip`, and you load it into Chrome yourself:
@@ -42,7 +65,7 @@ Only do this for files downloaded from this repository's Releases page.
 
 ## Update
 
-To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. To update, install the new installer or package over the old one: it stops the running engine and replaces it. Then load the new extension ZIP from the same release (unzip it into the same folder and choose reload on the extension's card).
+To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. To update, install the new installer or package over the old one: it stops the running engine and replaces it. With Homebrew run `brew upgrade doraptim`, with Scoop `scoop update doraptim`. Then load the new extension ZIP from the same release (unzip it into the same folder and choose reload on the extension's card).
 
 ## Uninstall
 
@@ -55,6 +78,10 @@ doraptim uninstall
 ```
 
 It stops the engine, removes it from your browsers, and deletes its download queue, then shows the three `sudo` commands that remove the program itself. Your downloaded files are not touched. Add `--keep-data` to keep the queue.
+
+**Homebrew:** run `doraptim uninstall --yes`, then `brew uninstall doraptim`.
+
+**Scoop:** run `scoop uninstall doraptim`.
 
 Then remove the extension: open `chrome://extensions` and choose **Remove** on DoRaptim.
 

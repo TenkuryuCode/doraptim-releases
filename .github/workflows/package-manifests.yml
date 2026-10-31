@@ -1,0 +1,67 @@
+# Keeps the Homebrew formula (Formula/), the Scoop manifest (bucket/), and the winget manifests
+# (winget/) in this repository up to date. Runs when a release is published, or by hand for a
+# given tag. scripts/package-manifests.sh is a copy of the one in the private DoRaptim
+# repository, where it is tested.
+name: package manifests
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, for example v0.1.0-alpha.1"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: package-manifests
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Write the manifests for the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: |
+          version="${TAG#v}"
+          current=$(sed -n 's/^  version "\(.*\)"$/\1/p' Formula/doraptim.rb 2>/dev/null || true)
+          # Never replace a newer version, for example when an older release is published late.
+          if [ -n "$current" ] && ! python3 - "$version" "$current" <<'PY'
+          import re, sys
+          def key(text):
+              core, _, pre = text.partition("-")
+              parts = [int(n) for n in core.split(".")]
+              ids = [(0, int(p), "") if p.isdigit() else (1, 0, p) for p in pre.split(".")] if pre else []
+              # A release ranks above its pre-releases.
+              return (parts, 1 if not pre else 0, ids)
+          sys.exit(0 if key(sys.argv[1]) >= key(sys.argv[2]) else 1)
+          PY
+          then
+            echo "::notice::Formula already has $current, newer than $version; nothing to do."
+            exit 0
+          fi
+
+          gh release download "$TAG" --pattern SHA256SUMS --dir "$RUNNER_TEMP/release"
+          sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out"
+          rm -rf Formula bucket winget
+          cp -R "$RUNNER_TEMP/out/Formula" "$RUNNER_TEMP/out/bucket" "$RUNNER_TEMP/out/winget" .
+
+          git add Formula bucket winget
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "packages: DoRaptim ${version}"
+          git push origin HEAD:main
