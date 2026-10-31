@@ -41,4 +41,6 @@ Report a vulnerability privately with this repository's *Security* tab, *Report 
 
 ## Terms
 
-Copyright (c) 2026 Tenkuryu Code. All rights reserved. The terms for installing and using DoRaptim will be published here before the first release. The DoRaptim name and logo belong to Tenkuryu Code.
+By installing or using DoRaptim you accept the [terms of use](TERMS-OF-USE.md) ([Bahasa Indonesia](TERMS-OF-USE.id.md); the Indonesian version prevails if the two differ). In short: DoRaptim is free for personal use and internal use in your organization; you may not sell or redistribute the builds, and it comes without warranty.
+
+Copyright (c) 2026 Tenkuryu Code. All rights reserved. The DoRaptim name and logo belong to Tenkuryu Code.
