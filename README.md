@@ -6,37 +6,44 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 
 ## Install
 
+DoRaptim has two parts: the **engine**, a small program on your computer that does the downloading, and the **Chrome extension**, which hands browser downloads to it. Install the engine in one of the two ways below, then the extension.
+
+### Option 1: download the installer
+
 1. Download the installer for your computer from [Releases](../../releases):
    - **Windows (64-bit):** `doraptim-<version>-windows-x86_64-setup.exe`
    - **macOS, Apple Silicon (M1 or later):** `doraptim-<version>-macos-arm64.pkg`
    - **macOS, Intel:** `doraptim-<version>-macos-x86_64.pkg`
-2. Run it. It installs the DoRaptim engine for your user account and connects it to the DoRaptim browser extension.
-3. Install the DoRaptim extension for Chrome, as described below.
+2. Open it and follow the steps. It installs the engine for your user account and connects it to the browsers you have.
 
-The `.tar.gz` archives and the `doraptim-<version>-x86_64-pc-windows-msvc.zip` archive contain only the engine program, for developers.
+Nothing else is needed: no Homebrew, no developer tools.
 
-### Or install with a package manager
-
-**Homebrew** (macOS, or Linux on x86-64):
+### Option 2: install with Homebrew (macOS, or Linux on x86-64)
 
 ```sh
 brew tap tenkuryucode/doraptim https://github.com/TenkuryuCode/doraptim-releases
+brew trust tenkuryucode/doraptim
 brew install doraptim
 doraptim setup
 ```
 
-The `brew tap` line is needed once. `doraptim setup` connects the engine to the browser extension.
+- The `brew tap` and `brew trust` lines are needed once. Newer Homebrew versions only install from a tap you have trusted.
+- `doraptim setup` connects the engine to your browsers. Run it again if you install another browser later.
+- Homebrew needs up-to-date **Command Line Tools**. If it stops with *"Your Command Line Tools are too outdated"* (common right after a macOS upgrade), update them in *System Settings*, *General*, *Software Update*, or run `sudo rm -rf /Library/Developer/CommandLineTools` and then `sudo xcode-select --install`. Then run `brew install doraptim` again. Or use option 1, which does not need them.
+- To update later: `brew update && brew upgrade doraptim`.
 
-**Scoop** (Windows):
+### On Windows, Scoop works too
 
 ```powershell
 scoop bucket add doraptim https://github.com/TenkuryuCode/doraptim-releases
 scoop install doraptim
 ```
 
-Scoop connects the engine to the browser extension by itself. **winget** (`winget install TenkuryuCode.DoRaptim`) will follow once Microsoft has accepted the package.
+Scoop connects the engine to your browsers by itself. **winget** (`winget install TenkuryuCode.DoRaptim`) will follow once Microsoft has accepted the package.
 
-With any of them, install the Chrome extension as described next.
+### For developers
+
+The `.tar.gz` archives and `doraptim-<version>-x86_64-pc-windows-msvc.zip` contain only the engine program. Put it anywhere, then run `doraptim setup`.
 
 ### Install the Chrome extension (developer preview)
 
