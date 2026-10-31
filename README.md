@@ -40,6 +40,24 @@ Good to know:
 
 Only do this for files downloaded from this repository's Releases page.
 
+## Update
+
+To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. To update, install the new installer or package over the old one: it stops the running engine and replaces it. Then load the new extension ZIP from the same release (unzip it into the same folder and choose reload on the extension's card).
+
+## Uninstall
+
+**Windows:** open *Settings*, *Apps*, *Installed apps*, choose **DoRaptim**, and *Uninstall*.
+
+**macOS:** open Terminal and run:
+
+```sh
+doraptim uninstall
+```
+
+It stops the engine, removes it from your browsers, and deletes its download queue, then shows the three `sudo` commands that remove the program itself. Your downloaded files are not touched. Add `--keep-data` to keep the queue.
+
+Then remove the extension: open `chrome://extensions` and choose **Remove** on DoRaptim.
+
 ## Check a download
 
 Each release has a `SHA256SUMS` file. In the folder with your download:

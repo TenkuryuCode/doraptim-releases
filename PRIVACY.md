@@ -30,7 +30,7 @@ The journal can contain sensitive URLs, because some sites put tokens in them. P
 
 ## Network activity
 
-The engine connects only to the sources the user or a local client asked for, including the redirects those sources require. It does not contact any server of its own and does not check for updates by itself.
+The engine connects only to the sources the user or a local client asked for, including the redirects those sources require. It does not contact any server of its own and does not check for updates by itself. Only when the user runs `doraptim update` does it ask GitHub (`api.github.com`) for the list of published releases; that request carries the program's version in its User-Agent and nothing else about the user or their downloads.
 
 ## Local interfaces
 
