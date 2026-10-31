@@ -1,0 +1,28 @@
+{
+    "version": "0.1.0-alpha.1",
+    "description": "Download manager engine for the DoRaptim browser extension",
+    "homepage": "https://github.com/TenkuryuCode/doraptim-releases",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://raw.githubusercontent.com/TenkuryuCode/doraptim-releases/main/TERMS-OF-USE.md"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.1/doraptim-0.1.0-alpha.1-x86_64-pc-windows-msvc.zip",
+            "hash": "9b56dd22001248729ec77dd924ca5d2245b7539cbe30226be0f64b1fdadaf00f",
+            "extract_dir": "doraptim-0.1.0-alpha.1-x86_64-pc-windows-msvc"
+        }
+    },
+    "bin": "doraptim.exe",
+    "post_install": [
+        "& \"$dir\\doraptim.exe\" setup"
+    ],
+    "pre_uninstall": [
+        "& \"$dir\\doraptim.exe\" stop",
+        "& \"$dir\\doraptim.exe\" host uninstall"
+    ],
+    "notes": [
+        "The engine is connected to the DoRaptim browser extension.",
+        "Use of DoRaptim is subject to its terms of use (TERMS-OF-USE.md in the install folder)."
+    ]
+}
