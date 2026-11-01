@@ -89,8 +89,8 @@ Only do this for files downloaded from this repository's Releases page.
 
 - **Downloads from the browser** go to DoRaptim by itself once the extension is installed. A preview window lets you rename the file, choose where it goes, and start it; it then shows the progress.
 - **The popup** (the DoRaptim icon in Chrome's toolbar) lists the current downloads, adds a download from a link, and opens the **Downloads** page with every download, their details, and the settings.
-- **Videos:** choose **Find videos on this page** in the popup, or turn on **Find videos automatically** in the settings to get a **Download with DoRaptim** button on videos. Right-clicking a video or link also offers **Download with DoRaptim**. Supported: video and audio files, HLS streams (with a choice of quality), players that stream video and audio separately (joined into one MP4), and subtitle files, which are saved next to the video.
-- **Not supported:** live streams, encrypted streams, DASH streams for now, and services that protect their videos against copying (DRM) or do not allow downloading them, such as YouTube and Netflix. Download only what you have the right to download.
+- **Videos:** choose **Find videos on this page** in the popup, or turn on **Find videos automatically** in the settings to get a **Download with DoRaptim** button on videos. Right-clicking a video or link also offers **Download with DoRaptim**. The button's menu lists the qualities to choose from. Supported: video and audio files, HLS streams (with a choice of quality, also encrypted with AES-128), players that stream video and audio separately (joined into one MP4), and subtitle files, which are saved next to the video. Streams are saved as MP4, which plays in QuickTime and every other player.
+- **Not supported:** live streams, DASH streams for now, files on services that encrypt them end to end (such as MEGA), and services that protect their videos against copying (DRM) or do not allow downloading them, such as YouTube and Netflix. Download only what you have the right to download.
 
 ## Update
 
