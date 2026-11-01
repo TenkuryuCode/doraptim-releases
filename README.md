@@ -4,6 +4,21 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 
 > **Pre-alpha.** DoRaptim is early software. Do not rely on it for downloads that must not fail.
 
+## Download
+
+<!-- latest-downloads:start -->
+**Latest version: 0.1.0-alpha.2** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.0-alpha.2))
+
+| Download | File |
+|---|---|
+| Chrome extension | [doraptim-extension-0.1.0-alpha.2-chrome.zip](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.2/doraptim-extension-0.1.0-alpha.2-chrome.zip) |
+| Windows (64-bit) installer | [doraptim-0.1.0-alpha.2-windows-x86_64-setup.exe](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.2/doraptim-0.1.0-alpha.2-windows-x86_64-setup.exe) |
+| macOS installer, Apple Silicon (M1 or later) | [doraptim-0.1.0-alpha.2-macos-arm64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.2/doraptim-0.1.0-alpha.2-macos-arm64.pkg) |
+| macOS installer, Intel | [doraptim-0.1.0-alpha.2-macos-x86_64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.2/doraptim-0.1.0-alpha.2-macos-x86_64.pkg) |
+
+Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.2/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
+<!-- latest-downloads:end -->
+
 ## Install
 
 DoRaptim has two parts: the **engine**, a small program on your computer that does the downloading, and the **Chrome extension**, which hands browser downloads to it. Install the engine in one of the two ways below, then the extension.
@@ -49,7 +64,7 @@ The `.tar.gz` archives and `doraptim-<version>-x86_64-pc-windows-msvc.zip` conta
 
 The extension is not in the Chrome Web Store yet. Until it is, each release includes it as `doraptim-extension-<version>-chrome.zip`, and you load it into Chrome yourself:
 
-1. Download `doraptim-extension-<version>-chrome.zip` from the same release as the installer.
+1. Download `doraptim-extension-<version>-chrome.zip` (the link under [Download](#download), or the same release as the installer).
 2. Unzip it into a folder you will keep, for example `Documents/DoRaptim extension`. Chrome loads the extension from that folder, so do not delete or move it.
 3. Open `chrome://extensions` in Chrome.
 4. Turn on **Developer mode** (top right).

@@ -1,6 +1,6 @@
-# Keeps the Homebrew formula (Formula/), the Scoop manifest (bucket/), and the winget manifests
-# (winget/) in this repository up to date. Runs when a release is published, or by hand for a
-# given tag. scripts/package-manifests.sh is a copy of the one in the private DoRaptim
+# Keeps the Homebrew formula (Formula/), the Scoop manifest (bucket/), the winget manifests
+# (winget/), and the README's download links in this repository up to date. Runs when a release
+# is published, or by hand for a given tag. scripts/package-manifests.sh is a copy of the one in the private DoRaptim
 # repository, where it is tested.
 name: package manifests
 
@@ -55,8 +55,10 @@ jobs:
           sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out"
           rm -rf Formula bucket winget
           cp -R "$RUNNER_TEMP/out/Formula" "$RUNNER_TEMP/out/bucket" "$RUNNER_TEMP/out/winget" .
+          # The README's direct download links point at this release.
+          python3 scripts/latest-links.py "$version" README.md
 
-          git add Formula bucket winget
+          git add Formula bucket winget README.md
           if git diff --cached --quiet; then
             echo "Nothing changed."
             exit 0
