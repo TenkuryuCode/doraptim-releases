@@ -70,6 +70,13 @@ Good to know:
 
 Only do this for files downloaded from this repository's Releases page.
 
+## Use
+
+- **Downloads from the browser** go to DoRaptim by itself once the extension is installed. A preview window lets you rename the file, choose where it goes, and start it; it then shows the progress.
+- **The popup** (the DoRaptim icon in Chrome's toolbar) lists the current downloads, adds a download from a link, and opens the **Downloads** page with every download, their details, and the settings.
+- **Videos:** choose **Find videos on this page** in the popup, or turn on **Find videos automatically** in the settings to get a **Download with DoRaptim** button on videos. Right-clicking a video or link also offers **Download with DoRaptim**. Supported: video and audio files, HLS streams (with a choice of quality), players that stream video and audio separately (joined into one MP4), and subtitle files, which are saved next to the video.
+- **Not supported:** live streams, encrypted streams, DASH streams for now, and services that protect their videos against copying (DRM) or do not allow downloading them, such as YouTube and Netflix. Download only what you have the right to download.
+
 ## Update
 
 To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. To update, install the new installer or package over the old one: it stops the running engine and replaces it. With Homebrew run `brew upgrade doraptim`, with Scoop `scoop update doraptim`. Then load the new extension ZIP from the same release (unzip it into the same folder and choose reload on the extension's card).
