@@ -8,7 +8,7 @@ This page covers the engine, the browser extension, and the installers.
 
 ## What the extension handles
 
-When the browser starts a supported download (HTTP or HTTPS, not from a private window, not started by another extension, and by default at least 1 MiB or of unknown size), the extension passes these to the engine through Chrome native messaging, a local connection to a program on the same computer:
+The extension takes over a download the browser starts when it uses HTTP or HTTPS, does not come from a private window or from another extension, and is at least 1 MiB or of unknown size; the minimum size can be changed in the settings. For such a download, the extension passes these to the engine through Chrome native messaging, a local connection to a program on the same computer:
 
 - the download URL and its redirect result;
 - the suggested filename;
