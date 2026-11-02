@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0-alpha.4",
+  "channel": "alpha",
+  "protocol": 2,
+  "min_extension": "0.1.0-alpha.4",
+  "min_engine": "0.1.0-alpha.4",
+  "assets": [
+    {"name": "doraptim-0.1.0-alpha.4-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-aarch64-apple-darwin.tar.gz", "sha256": "209513a9e5c427f36210d2b8d5d3182551e7b2d6f0e5564b9a3830e94a64285d"},
+    {"name": "doraptim-0.1.0-alpha.4-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-apple-darwin.tar.gz", "sha256": "abac1cde02f90cad99ba48a0beb888015c195abb9b582e4222868d220f5e6d48"},
+    {"name": "doraptim-0.1.0-alpha.4-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-unknown-linux-gnu.tar.gz", "sha256": "a328b15a159f8f5d94afc9b806edd689e265768225884b043d3205d10bc14e0f"},
+    {"name": "doraptim-0.1.0-alpha.4-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-pc-windows-msvc.zip", "sha256": "4aff0b7e84c90d7d39f388b69d9ea8087d971c1717e4d8b431e21025e1ff6891"},
+    {"name": "doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe", "sha256": "c0ab250b69db671d2b681360cd7a9cd38b4519691ddea8f48751490b365908ea"},
+    {"name": "doraptim-0.1.0-alpha.4-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-arm64.pkg", "sha256": "d604cdd2f2323c91c4324bdbfd76f2d2d103f0849a6a18dd2e031abea9bbafb6"},
+    {"name": "doraptim-0.1.0-alpha.4-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-x86_64.pkg", "sha256": "e7bbc75524ee0c61b0904eeb530149dc60b4662bdc8bfc8f7f9f1eb8169f59e7"},
+    {"name": "doraptim-extension-0.1.0-alpha.4-chrome.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-extension-0.1.0-alpha.4-chrome.zip", "sha256": "f68ac6d62940c21cfc01acf6cea5d6ad16e4a71031cffba834d6ddd88bbfb124"}
+  ]
+}

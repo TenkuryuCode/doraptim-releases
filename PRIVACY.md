@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 
 DoRaptim runs on the user's own computer. The project has no account service, telemetry, analytics, advertising, or hosted download proxy, and it sends nothing to Tenkuryu Code.
 
@@ -36,7 +36,7 @@ The journal can contain sensitive URLs, because some sites put tokens in them. P
 
 ## Network activity
 
-The engine connects only to the sources the user or a local client asked for, including the redirects those sources require and, for a video the user chose, its stream pieces, its separate audio file, and the subtitles the user kept ticked. It does not contact any server of its own and does not check for updates by itself. Only when the user runs `doraptim update` does it ask GitHub (`api.github.com`) for the list of published releases; that request carries the program's version in its User-Agent and nothing else about the user or their downloads.
+The engine connects only to the sources the user or a local client asked for, including the redirects those sources require and, for a video the user chose, its stream pieces, its separate audio file, and the subtitles the user kept ticked. It does not contact any server of Tenkuryu Code for downloads. Checking for a newer engine reads a signed `latest.json` from this repository (`raw.githubusercontent.com`). That request carries the program's version in its User-Agent and nothing else about the user or their downloads. `doraptim update` does this when the user runs it. An optional setting, off by default, lets the engine do the same at most once a day; it can be turned off in Settings.
 
 ## Local interfaces
 

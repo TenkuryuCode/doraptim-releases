@@ -1,7 +1,8 @@
 # Keeps the Homebrew formula (Formula/), the Scoop manifest (bucket/), the winget manifests
-# (winget/), and the README's download links in this repository up to date. Runs when a release
-# is published, or by hand for a given tag. scripts/package-manifests.sh is a copy of the one in the private DoRaptim
-# repository, where it is tested.
+# (winget/), latest.json (and latest.json.sig when DORAPTIM_UPDATE_SIGNING_KEY is set), and the
+# README's download links in this repository up to date. Runs when a release is published, or
+# by hand for a given tag. scripts/package-manifests.sh is a copy of the one in the private
+# DoRaptim repository, where it is tested.
 name: package manifests
 
 on:
@@ -32,6 +33,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.event.release.tag_name || inputs.tag }}
+          DORAPTIM_UPDATE_SIGNING_KEY: ${{ secrets.DORAPTIM_UPDATE_SIGNING_KEY }}
         run: |
           version="${TAG#v}"
           current=$(sed -n 's/^  version "\(.*\)"$/\1/p' Formula/doraptim.rb 2>/dev/null || true)
@@ -51,14 +53,27 @@ jobs:
             exit 0
           fi
 
+          if [ -z "${DORAPTIM_UPDATE_SIGNING_KEY:-}" ]; then
+            echo "::warning::DORAPTIM_UPDATE_SIGNING_KEY is not set; latest.json will be unsigned."
+          fi
+
           gh release download "$TAG" --pattern SHA256SUMS --dir "$RUNNER_TEMP/release"
           sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out"
+          if [ -n "${DORAPTIM_UPDATE_SIGNING_KEY:-}" ] && [ ! -f "$RUNNER_TEMP/out/latest.json.sig" ]; then
+            echo "::error::signing was requested but latest.json.sig was not written"
+            exit 1
+          fi
           rm -rf Formula bucket winget
           cp -R "$RUNNER_TEMP/out/Formula" "$RUNNER_TEMP/out/bucket" "$RUNNER_TEMP/out/winget" .
+          cp "$RUNNER_TEMP/out/latest.json" .
+          if [ -f "$RUNNER_TEMP/out/latest.json.sig" ]; then
+            cp "$RUNNER_TEMP/out/latest.json.sig" .
+          fi
           # The README's direct download links point at this release.
           python3 scripts/latest-links.py "$version" README.md
 
-          git add Formula bucket winget README.md
+          git add Formula bucket winget README.md latest.json
+          [ -f latest.json.sig ] && git add latest.json.sig
           if git diff --cached --quiet; then
             echo "Nothing changed."
             exit 0

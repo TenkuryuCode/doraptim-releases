@@ -197,4 +197,42 @@ ManifestType: defaultLocale
 ManifestVersion: 1.6.0
 YAML
 
-echo "wrote Formula, bucket, and winget in $out for $version"
+# A signed latest.json is what `doraptim update` reads. The signature is written when
+# DORAPTIM_UPDATE_SIGNING_KEY (32-byte hex Ed25519 seed) is set; otherwise only the JSON.
+channel=stable
+case "$version" in *-*) channel=alpha ;; esac
+{
+    printf '{\n'
+    printf '  "version": "%s",\n' "$version"
+    printf '  "channel": "%s",\n' "$channel"
+    printf '  "protocol": 2,\n'
+    printf '  "min_extension": "%s",\n' "$version"
+    printf '  "min_engine": "%s",\n' "$version"
+    printf '  "assets": [\n'
+    first=1
+    for file in "$mac_arm" "$mac_intel" "$linux" "$windows_zip" "$windows_setup" \
+        "doraptim-$version-macos-arm64.pkg" "doraptim-$version-macos-x86_64.pkg" \
+        "doraptim-extension-$version-chrome.zip"; do
+        hash=$(awk -v file="$file" '{ name = $2; sub(/^\*/, "", name); if (name == file) print $1 }' "$sums" || true)
+        [ -n "$hash" ] || continue
+        [ "$first" = 1 ] || printf ',\n'
+        first=0
+        printf '    {"name": "%s", "url": "%s/%s", "sha256": "%s"}' "$file" "$base" "$file" "$hash"
+    done
+    printf '\n  ]\n}\n'
+} > "$out/latest.json"
+
+if [ -n "${DORAPTIM_UPDATE_SIGNING_KEY-}" ]; then
+    node -e '
+const { createPrivateKey, sign } = require("crypto");
+const fs = require("fs");
+const seed = Buffer.from(process.env.DORAPTIM_UPDATE_SIGNING_KEY, "hex");
+if (seed.length !== 32) { console.error("DORAPTIM_UPDATE_SIGNING_KEY must be 32 bytes hex"); process.exit(1); }
+const pkcs8 = Buffer.concat([Buffer.from("302e020100300506032b657004220420", "hex"), seed]);
+const key = createPrivateKey({ key: pkcs8, format: "der", type: "pkcs8" });
+const body = fs.readFileSync(process.argv[1]);
+fs.writeFileSync(process.argv[1] + ".sig", sign(null, body, key).toString("hex") + "\n");
+' "$out/latest.json"
+fi
+
+echo "wrote Formula, bucket, winget, and latest.json in $out for $version"
