@@ -1,7 +1,7 @@
 {
     "version": "0.1.0-alpha.4",
     "description": "Download manager engine for the DoRaptim browser extension",
-    "homepage": "https://github.com/TenkuryuCode/doraptim-releases",
+    "homepage": "https://doraptim.com",
     "license": {
         "identifier": "Proprietary",
         "url": "https://raw.githubusercontent.com/TenkuryuCode/doraptim-releases/main/TERMS-OF-USE.md"

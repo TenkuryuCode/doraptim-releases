@@ -29,8 +29,11 @@ fi
 [ -f "$sums" ] || { echo "cannot read $sums" >&2; exit 2; }
 
 repository=${DORAPTIM_RELEASE_REPOSITORY:-TenkuryuCode/doraptim-releases}
-base="https://github.com/$repository/releases/download/v$version"
-homepage="https://github.com/$repository"
+releases="https://github.com/$repository"
+website=${DORAPTIM_WEBSITE_URL:-https://doraptim.com}
+website=${website%/}
+base="$releases/releases/download/v$version"
+homepage="$website"
 
 # The SHA-256 of one release file, or fail if SHA256SUMS does not list it.
 sha() {
@@ -180,19 +183,19 @@ PackageIdentifier: TenkuryuCode.DoRaptim
 PackageVersion: $version
 PackageLocale: en-US
 Publisher: Tenkuryu Code
-PublisherUrl: https://github.com/TenkuryuCode
-PublisherSupportUrl: $homepage/issues
-PrivacyUrl: $homepage/blob/main/PRIVACY.md
+PublisherUrl: $website
+PublisherSupportUrl: $releases/issues
+PrivacyUrl: $website/en/privacy/
 PackageName: DoRaptim
-PackageUrl: $homepage
+PackageUrl: $website
 License: Proprietary
-LicenseUrl: $homepage/blob/main/TERMS-OF-USE.md
+LicenseUrl: $website/en/terms/
 ShortDescription: Download manager engine for the DoRaptim browser extension.
 Description: DoRaptim takes over browser downloads and runs them with parallel connections, resume, and a persistent queue. The installer connects the engine to the DoRaptim extension for Chrome.
 Tags:
   - download-manager
   - downloader
-ReleaseNotesUrl: $homepage/releases/tag/v$version
+ReleaseNotesUrl: $releases/releases/tag/v$version
 ManifestType: defaultLocale
 ManifestVersion: 1.6.0
 YAML

@@ -3,13 +3,13 @@ PackageIdentifier: TenkuryuCode.DoRaptim
 PackageVersion: 0.1.0-alpha.4
 PackageLocale: en-US
 Publisher: Tenkuryu Code
-PublisherUrl: https://github.com/TenkuryuCode
+PublisherUrl: https://doraptim.com
 PublisherSupportUrl: https://github.com/TenkuryuCode/doraptim-releases/issues
-PrivacyUrl: https://github.com/TenkuryuCode/doraptim-releases/blob/main/PRIVACY.md
+PrivacyUrl: https://doraptim.com/en/privacy/
 PackageName: DoRaptim
-PackageUrl: https://github.com/TenkuryuCode/doraptim-releases
+PackageUrl: https://doraptim.com
 License: Proprietary
-LicenseUrl: https://github.com/TenkuryuCode/doraptim-releases/blob/main/TERMS-OF-USE.md
+LicenseUrl: https://doraptim.com/en/terms/
 ShortDescription: Download manager engine for the DoRaptim browser extension.
 Description: DoRaptim takes over browser downloads and runs them with parallel connections, resume, and a persistent queue. The installer connects the engine to the DoRaptim extension for Chrome.
 Tags:

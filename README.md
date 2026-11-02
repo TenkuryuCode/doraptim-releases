@@ -1,6 +1,6 @@
 # DoRaptim downloads
 
-Official downloads of DoRaptim, a download manager for your browser by Tenkuryu Code. This repository only hosts the releases; the source code is private.
+Official downloads of DoRaptim, a download manager for your browser by Tenkuryu Code. The project website is [doraptim.com](https://doraptim.com). This repository only hosts the releases; the source code is private.
 
 > **Pre-alpha.** DoRaptim is early software. Do not rely on it for downloads that must not fail.
 
@@ -115,7 +115,7 @@ shasum -a 256 --check --ignore-missing SHA256SUMS      # macOS
 
 ## Privacy
 
-DoRaptim has no account, telemetry, analytics, or cloud service. See [PRIVACY.md](PRIVACY.md).
+DoRaptim has no account, telemetry, analytics, or cloud service. See [PRIVACY.md](PRIVACY.md) or [doraptim.com/en/privacy](https://doraptim.com/en/privacy/).
 
 ## Security
 
@@ -123,6 +123,6 @@ Report a vulnerability privately with this repository's *Security* tab, *Report 
 
 ## Terms
 
-By installing or using DoRaptim you accept the [terms of use](TERMS-OF-USE.md) ([Bahasa Indonesia](TERMS-OF-USE.id.md); the Indonesian version prevails if the two differ). In short: DoRaptim is free for personal use and internal use in your organization; you may not sell or redistribute the builds, and it comes without warranty.
+By installing or using DoRaptim you accept the [terms of use](TERMS-OF-USE.md) ([Bahasa Indonesia](TERMS-OF-USE.id.md); also at [doraptim.com/en/terms](https://doraptim.com/en/terms/); the Indonesian version prevails if the two differ). In short: DoRaptim is free for personal use and internal use in your organization; you may not sell or redistribute the builds, and it comes without warranty.
 
 Copyright (c) 2026 Tenkuryu Code. All rights reserved. The DoRaptim name and logo belong to Tenkuryu Code.
