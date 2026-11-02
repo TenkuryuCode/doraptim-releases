@@ -13,6 +13,8 @@ import re
 import sys
 
 REPOSITORY = "https://github.com/TenkuryuCode/doraptim-releases"
+STORE = "https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk"
+STORE_ID = "opmbiaopegjjcijloalolfilhcpcbogk"
 START = "<!-- latest-downloads:start -->"
 END = "<!-- latest-downloads:end -->"
 
@@ -20,7 +22,6 @@ END = "<!-- latest-downloads:end -->"
 def block(version: str) -> str:
     base = f"{REPOSITORY}/releases/download/v{version}"
     rows = [
-        ("Chrome extension", f"doraptim-extension-{version}-chrome.zip"),
         ("Windows (64-bit) installer", f"doraptim-{version}-windows-x86_64-setup.exe"),
         ("macOS installer, Apple Silicon (M1 or later)", f"doraptim-{version}-macos-arm64.pkg"),
         ("macOS installer, Intel", f"doraptim-{version}-macos-x86_64.pkg"),
@@ -28,6 +29,8 @@ def block(version: str) -> str:
     lines = [
         START,
         f"**Latest version: {version}** ([release notes]({REPOSITORY}/releases/tag/v{version}))",
+        "",
+        f"The Chrome extension is installed from the [Chrome Web Store]({STORE}) (ID `{STORE_ID}`).",
         "",
         "| Download | File |",
         "|---|---|",

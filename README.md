@@ -60,23 +60,13 @@ Scoop connects the engine to your browsers by itself. **winget** (`winget instal
 
 The `.tar.gz` archives and `doraptim-<version>-x86_64-pc-windows-msvc.zip` contain only the engine program. Put it anywhere, then run `doraptim setup`.
 
-### Install the Chrome extension (developer preview)
+### Install the Chrome extension
 
-The extension is not in the Chrome Web Store yet. Until it is, each release includes it as `doraptim-extension-<version>-chrome.zip`, and you load it into Chrome yourself:
+Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk). Its ID is `opmbiaopegjjcijloalolfilhcpcbogk`. The installer connects the engine only to that ID.
 
-1. Download `doraptim-extension-<version>-chrome.zip` (the link under [Download](#download), or the same release as the installer).
-2. Unzip it into a folder you will keep, for example `Documents/DoRaptim extension`. Chrome loads the extension from that folder, so do not delete or move it.
-3. Open `chrome://extensions` in Chrome.
-4. Turn on **Developer mode** (top right).
-5. Choose **Load unpacked** and select the unzipped folder (the one that contains `manifest.json`).
-6. The extension's ID must be `omaocaakodbohegmpboammlafnagpnpd`. The installer connects the engine only to that ID.
+Do not load an unpacked ZIP from an older GitHub release: that build has a different ID, and the engine will not talk to it.
 
-Good to know:
-
-- Chrome does not update this extension automatically. For a new release, unzip the new ZIP into the same folder (replacing the old files) and choose the reload button on the extension's card.
-- Chrome may show a warning about developer-mode extensions when it starts. That is expected for a developer preview.
-- Install it only from this repository's Releases page, and check the ID above.
-- Some managed (work or school) browsers block developer-mode extensions.
+Chrome updates the Store listing by itself. Keep the engine on the same version. Some managed (work or school) browsers only allow extensions on an allow list: ask the administrator to allow `opmbiaopegjjcijloalolfilhcpcbogk`.
 
 ### The builds are not code-signed yet
 
@@ -94,7 +84,7 @@ Only do this for files downloaded from this repository's Releases page.
 
 ## Update
 
-To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. From 0.1.0-alpha.5 that command reads `latest.json` on this repository's `main` branch (and `latest.json.sig` when the engine was built with a public key). An optional setting, off by default, lets the engine do the same at most once a day. To update, install the new installer or package over the old one: it stops the running engine and replaces it. With Homebrew run `brew upgrade doraptim`, with Scoop `scoop update doraptim`. Then load the new extension ZIP from the same release (unzip it into the same folder and choose reload on the extension's card).
+To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. From 0.1.0-alpha.5 that command reads `latest.json` on this repository's `main` branch (and `latest.json.sig` when the engine was built with a public key). An optional setting, off by default, lets the engine do the same at most once a day. To update, install the new installer or package over the old one: it stops the running engine and replaces it. With Homebrew run `brew upgrade doraptim`, with Scoop `scoop update doraptim`. Chrome updates the extension from the Chrome Web Store by itself.
 
 ## Uninstall
 
