@@ -116,7 +116,7 @@ shasum -a 256 --check --ignore-missing SHA256SUMS      # macOS
 
 ## Privacy
 
-DoRaptim has no account, telemetry, analytics, or cloud service. See [PRIVACY.md](PRIVACY.md) or [doraptim.com/en/privacy](https://doraptim.com/en/privacy/).
+DoRaptim has no account, telemetry, analytics, or cloud service. See [PRIVACY.md](PRIVACY.md) ([Bahasa Indonesia](PRIVACY.id.md); also at [doraptim.com/en/privacy](https://doraptim.com/en/privacy/) and [doraptim.com/id/privacy](https://doraptim.com/id/privacy/)).
 
 ## Security
 
@@ -124,6 +124,6 @@ Report a vulnerability privately with this repository's *Security* tab, *Report 
 
 ## Terms
 
-By installing or using DoRaptim you accept the [terms of use](TERMS-OF-USE.md) ([Bahasa Indonesia](TERMS-OF-USE.id.md); also at [doraptim.com/en/terms](https://doraptim.com/en/terms/); the Indonesian version prevails if the two differ). In short: DoRaptim is free for personal use and internal use in your organization; you may not sell or redistribute the builds, and it comes without warranty.
+By installing or using DoRaptim you accept the [terms of use](TERMS-OF-USE.md) ([Bahasa Indonesia](TERMS-OF-USE.id.md); also at [doraptim.com/en/terms](https://doraptim.com/en/terms/) and [doraptim.com/id/terms](https://doraptim.com/id/terms/); the Indonesian version prevails if the two differ). In short: DoRaptim is free for personal use and internal use in your organization; you may not sell or redistribute the builds, and it comes without warranty.
 
 Copyright (c) 2026 Tenkuryu Code. All rights reserved. The DoRaptim name and logo belong to Tenkuryu Code.
