@@ -1,6 +1,6 @@
 # Syarat penggunaan DoRaptim
 
-Versi 1, 1 November 2026
+Versi 2, 3 November 2026
 Berlaku untuk: build DoRaptim yang diterbitkan oleh Tenkuryu Code (installer, paket, arsip engine, dan extension browser).
 
 Syarat ini juga tersedia dalam bahasa Inggris (`TERMS-OF-USE.md`). Kedua versi sama-sama berlaku. Jika keduanya berbeda, versi bahasa Indonesia yang berlaku.
@@ -19,6 +19,7 @@ Anda tidak boleh:
 - mengubah DoRaptim, atau melakukan dekompilasi, disassembly, atau rekayasa balik terhadapnya, kecuali jika hukum mengizinkannya meskipun ada larangan ini;
 - menghapus atau mengubah pemberitahuan hak cipta, lisensi, atau merek;
 - menggunakan DoRaptim untuk melanggar hukum, melanggar hak cipta atau hak lainnya, atau menembus kontrol akses, paywall, atau perlindungan salinan;
+- menggunakan DoRaptim untuk mengirim permintaan dalam jumlah yang membebani atau mengganggu layanan pihak lain;
 - menggunakan nama atau logo DoRaptim di luar yang diizinkan `TRADEMARKS.md`.
 
 ## 3. Komponen pihak ketiga dan komponen open source terdahulu
@@ -28,6 +29,10 @@ DoRaptim memuat komponen buatan pihak lain, dan versi terdahulu sebagian kode Do
 ## 4. Apa yang Anda unduh adalah tanggung jawab Anda
 
 DoRaptim mengunduh berkas dari alamat yang diberikan oleh Anda atau browser Anda. Anda bertanggung jawab atas apa yang Anda unduh dan atas kepatuhan terhadap hukum serta ketentuan situs web tempat Anda mengunduh.
+
+Jika Anda memberikan alamat sebuah halaman, bukan alamat berkas, extension DoRaptim membuka halaman itu di browser Anda, dengan koneksi dan login Anda sendiri, lalu menawarkan media yang dimuat halaman tersebut. Proses ini berjalan di perangkat Anda. Tidak ada server Tenkuryu Code yang mengambil, membaca, atau meneruskan halaman maupun medianya.
+
+Media yang dapat dilihat siapa saja di sebuah situs web tetap dilindungi hak cipta pemiliknya. Pastikan Anda berhak mengunduh, menyimpan, dan menggunakannya, dan bahwa ketentuan situs tersebut mengizinkannya. DoRaptim tidak terafiliasi dengan, tidak didukung oleh, dan tidak bertanggung jawab atas situs web atau platform mana pun, dan nama situs pihak ketiga adalah milik pemiliknya.
 
 ## 5. Privasi
 

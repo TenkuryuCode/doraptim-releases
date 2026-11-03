@@ -1,6 +1,6 @@
 # DoRaptim terms of use
 
-Version 1, 2026-11-01
+Version 2, 2026-11-03
 Applies to: DoRaptim builds published by Tenkuryu Code (the installers, packages, engine archives, and the browser extension).
 
 These terms are also available in Indonesian (`TERMS-OF-USE.id.md`). Both versions are equally valid. If they differ, the Indonesian version prevails.
@@ -19,6 +19,7 @@ You may not:
 - modify DoRaptim, or decompile, disassemble, or reverse engineer it, except where the law allows this despite this restriction;
 - remove or change any copyright, license, or trademark notice;
 - use DoRaptim to break the law, infringe copyright or other rights, or get around access controls, paywalls, or copy protection;
+- use DoRaptim to send so many requests that they burden or disrupt someone else's service;
 - use the DoRaptim name or logo except as `TRADEMARKS.md` allows.
 
 ## 3. Third-party and earlier open-source components
@@ -28,6 +29,10 @@ DoRaptim includes components made by others, and earlier versions of some DoRapt
 ## 4. What you download is your responsibility
 
 DoRaptim downloads files from the addresses that you or your browser give it. You are responsible for what you download and for following the law and the terms of the websites you download from.
+
+When you give DoRaptim the address of a page rather than of a file, the DoRaptim extension opens that page in your browser, over your own connection and with your own sign-ins, and offers the media the page loads. This happens on your device. No server of Tenkuryu Code fetches, reads, or relays the page or its media.
+
+Media that anyone can view on a website is still protected by its owner's copyright. Make sure you have the right to download, keep, and use it, and that the website's own terms allow it. DoRaptim is not affiliated with, endorsed by, or responsible for any website or platform, and names of third-party websites belong to their owners.
 
 ## 5. Privacy
 
