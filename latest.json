@@ -1,17 +1,16 @@
 {
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "channel": "alpha",
   "protocol": 2,
-  "min_extension": "0.1.0-alpha.4",
-  "min_engine": "0.1.0-alpha.4",
+  "min_extension": "0.1.0-alpha.5",
+  "min_engine": "0.1.0-alpha.5",
   "assets": [
-    {"name": "doraptim-0.1.0-alpha.4-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-aarch64-apple-darwin.tar.gz", "sha256": "209513a9e5c427f36210d2b8d5d3182551e7b2d6f0e5564b9a3830e94a64285d"},
-    {"name": "doraptim-0.1.0-alpha.4-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-apple-darwin.tar.gz", "sha256": "abac1cde02f90cad99ba48a0beb888015c195abb9b582e4222868d220f5e6d48"},
-    {"name": "doraptim-0.1.0-alpha.4-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-unknown-linux-gnu.tar.gz", "sha256": "a328b15a159f8f5d94afc9b806edd689e265768225884b043d3205d10bc14e0f"},
-    {"name": "doraptim-0.1.0-alpha.4-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-x86_64-pc-windows-msvc.zip", "sha256": "4aff0b7e84c90d7d39f388b69d9ea8087d971c1717e4d8b431e21025e1ff6891"},
-    {"name": "doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe", "sha256": "c0ab250b69db671d2b681360cd7a9cd38b4519691ddea8f48751490b365908ea"},
-    {"name": "doraptim-0.1.0-alpha.4-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-arm64.pkg", "sha256": "d604cdd2f2323c91c4324bdbfd76f2d2d103f0849a6a18dd2e031abea9bbafb6"},
-    {"name": "doraptim-0.1.0-alpha.4-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-x86_64.pkg", "sha256": "e7bbc75524ee0c61b0904eeb530149dc60b4662bdc8bfc8f7f9f1eb8169f59e7"},
-    {"name": "doraptim-extension-0.1.0-alpha.4-chrome.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-extension-0.1.0-alpha.4-chrome.zip", "sha256": "f68ac6d62940c21cfc01acf6cea5d6ad16e4a71031cffba834d6ddd88bbfb124"}
+    {"name": "doraptim-0.1.0-alpha.5-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-aarch64-apple-darwin.tar.gz", "sha256": "c429d767d952c26d5ebf2546e46f232e81f9aa430869450c5f29d892b1021db6"},
+    {"name": "doraptim-0.1.0-alpha.5-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-x86_64-apple-darwin.tar.gz", "sha256": "fe1894f2bad49efe6efc180a554c649559e0a18650c2b8a37befe3eec7e65229"},
+    {"name": "doraptim-0.1.0-alpha.5-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-x86_64-unknown-linux-gnu.tar.gz", "sha256": "0b00d253ee6c73fb9a0fdf9512d6aa702600dafcf6fe4bda304ee5e30d5011f8"},
+    {"name": "doraptim-0.1.0-alpha.5-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-x86_64-pc-windows-msvc.zip", "sha256": "28911cb170b072421f680a09235070546423f6d833afc829f022dce0e5e952f0"},
+    {"name": "doraptim-0.1.0-alpha.5-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-windows-x86_64-setup.exe", "sha256": "7f5bd4ad9127e2f97b94ae673cff0d9f2232b8e79869b8c5f70d6d3b79f08cb0"},
+    {"name": "doraptim-0.1.0-alpha.5-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-macos-arm64.pkg", "sha256": "e94386cef9b65d72f1544c34ba94e77e58c2e64a8913d3573f48d85a4ed8d140"},
+    {"name": "doraptim-0.1.0-alpha.5-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-macos-x86_64.pkg", "sha256": "1e3f46ad2a6fa8cfad28c3c57688d1754aca47b6c86291eee4fa9a4aea32011c"}
   ]
 }

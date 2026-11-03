@@ -7,16 +7,17 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 ## Download
 
 <!-- latest-downloads:start -->
-**Latest version: 0.1.0-alpha.4** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.0-alpha.4))
+**Latest version: 0.1.0-alpha.5** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.0-alpha.5))
+
+The Chrome extension is installed from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk) (ID `opmbiaopegjjcijloalolfilhcpcbogk`).
 
 | Download | File |
 |---|---|
-| Chrome extension | [doraptim-extension-0.1.0-alpha.4-chrome.zip](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-extension-0.1.0-alpha.4-chrome.zip) |
-| Windows (64-bit) installer | [doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-windows-x86_64-setup.exe) |
-| macOS installer, Apple Silicon (M1 or later) | [doraptim-0.1.0-alpha.4-macos-arm64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-arm64.pkg) |
-| macOS installer, Intel | [doraptim-0.1.0-alpha.4-macos-x86_64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/doraptim-0.1.0-alpha.4-macos-x86_64.pkg) |
+| Windows (64-bit) installer | [doraptim-0.1.0-alpha.5-windows-x86_64-setup.exe](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-windows-x86_64-setup.exe) |
+| macOS installer, Apple Silicon (M1 or later) | [doraptim-0.1.0-alpha.5-macos-arm64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-macos-arm64.pkg) |
+| macOS installer, Intel | [doraptim-0.1.0-alpha.5-macos-x86_64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/doraptim-0.1.0-alpha.5-macos-x86_64.pkg) |
 
-Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.4/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
+Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-alpha.5/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
 <!-- latest-downloads:end -->
 
 ## Install
