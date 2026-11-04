@@ -8,18 +8,18 @@ class Doraptim < Formula
   on_macos do
     on_arm do
       url "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-beta.1/doraptim-0.1.0-beta.1-aarch64-apple-darwin.tar.gz"
-      sha256 "6c70d5fa00c9d6257aa8c0aefdd2141991db1d300d5eb79641cd1fd8861cb131"
+      sha256 "c1070da3107bf1ef83373dd7a5e10c7e6f70fd03413b9d298817593ee4956833"
     end
     on_intel do
       url "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-beta.1/doraptim-0.1.0-beta.1-x86_64-apple-darwin.tar.gz"
-      sha256 "a2d184618f7bbdb4ae2f50699e800b819863fe0bd75656c73f5d40bf91ad3890"
+      sha256 "6d020f6dcc9a3456da3c49d7e175519fb5fe9efee321cb0ff295e1f8be0cb649"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-beta.1/doraptim-0.1.0-beta.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "37fdfb25b3cec25d5ada4b39bc267cca44a291231008170204a546c9eecc3654"
+      sha256 "7085f62355232001c8ee0fd478b08b8ef65c30c2e5d4c3221cdc2d4cf1282f93"
     end
   end
 
