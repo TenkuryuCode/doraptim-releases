@@ -55,3 +55,4 @@ Pengguna dapat menonaktifkan pengambilalihan unduhan otomatis pada extension, me
 ## Kontak
 
 Pertanyaan tentang privasi: buka issue di repositori ini. Masalah keamanan: gunakan tab *Security*, *Report a vulnerability*, bukan issue publik.
+
