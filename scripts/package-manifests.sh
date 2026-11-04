@@ -203,7 +203,11 @@ YAML
 # A signed latest.json is what `doraptim update` reads. The signature is written when
 # DORAPTIM_UPDATE_SIGNING_KEY (32-byte hex Ed25519 seed) is set; otherwise only the JSON.
 channel=stable
-case "$version" in *-*) channel=alpha ;; esac
+case "$version" in
+    *-beta*) channel=beta ;;
+    *-rc*) channel=rc ;;
+    *-*) channel=alpha ;;
+esac
 {
     printf '{\n'
     printf '  "version": "%s",\n' "$version"

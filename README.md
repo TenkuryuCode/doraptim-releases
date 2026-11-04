@@ -2,7 +2,7 @@
 
 Official downloads of DoRaptim, a download manager for your browser by Tenkuryu Code. The project website is [doraptim.com](https://doraptim.com). This repository only hosts the releases; the source code is private.
 
-> **Pre-alpha.** DoRaptim is early software. Do not rely on it for downloads that must not fail.
+> **Beta.** DoRaptim is still under active development. Do not rely on it for downloads that must not fail.
 
 ## Download
 
