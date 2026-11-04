@@ -13,6 +13,6 @@ Commands:
 Installers:
   - Architecture: x64
     InstallerUrl: https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.0-beta.1/doraptim-0.1.0-beta.1-windows-x86_64-setup.exe
-    InstallerSha256: 8BE51407E053AA6EBD63727F302EFBEB9D34AA701F45E501C9DE5869C7464950
+    InstallerSha256: 853BF6357EA31526AD0EF4F234A950E7E54488356ED5C3821CFEAA2111EAACCA
 ManifestType: installer
 ManifestVersion: 1.6.0
