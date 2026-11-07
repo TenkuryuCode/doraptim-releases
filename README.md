@@ -116,7 +116,7 @@ shasum -a 256 --check --ignore-missing SHA256SUMS      # macOS
 
 ## Privacy
 
-DoRaptim has no account, telemetry, analytics, or cloud service. See [PRIVACY.md](PRIVACY.md) ([Bahasa Indonesia](PRIVACY.id.md); also at [doraptim.com/en/privacy](https://doraptim.com/en/privacy/) and [doraptim.com/id/privacy](https://doraptim.com/id/privacy/)).
+The DoRaptim engine, browser extension, desktop app, and installers have no account, telemetry, analytics, or cloud service. The public website at doraptim.com uses Google Analytics 4 to measure aggregate website usage. See [PRIVACY.md](PRIVACY.md) ([Bahasa Indonesia](PRIVACY.id.md); also at [doraptim.com/en/privacy](https://doraptim.com/en/privacy/) and [doraptim.com/id/privacy](https://doraptim.com/id/privacy/)).
 
 ## Security
 

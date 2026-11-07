@@ -1,10 +1,14 @@
 # Privacy
 
-Last updated: 2026-11-03
+Last updated: 2026-11-04
 
-DoRaptim runs on the user's own computer. The project has no account service, telemetry, analytics, advertising, or hosted download proxy, and it sends nothing to Tenkuryu Code.
+DoRaptim runs on the user's own computer. The engine, browser extension, desktop application, and installers do not send telemetry or analytics to Tenkuryu Code and have no account service or hosted download proxy. The public website may use Google Analytics to measure aggregate website usage.
 
 This page covers the engine, the browser extension, and the installers.
+
+## Public website
+
+The public DoRaptim website loads Google Analytics 4 in production. Google Analytics may use cookies or similar browser storage and may collect page views, interactions, approximate geographic information, device and browser information, and referral information. This data is sent to Google and used to understand website usage. It is not used to identify or combine website visitors with downloads performed by the engine or browser extension. Do not enter credentials or sensitive download URLs on the website.
 
 ## What the extension handles
 
@@ -36,7 +40,7 @@ The journal can contain sensitive URLs, because some sites put tokens in them. P
 
 ## Network activity
 
-The engine connects only to the sources the user or a local client asked for, including the redirects those sources require and, for a video the user chose, its stream pieces, its separate audio file, and the subtitles the user kept ticked. It does not contact any server of Tenkuryu Code for downloads. Checking for a newer engine reads a signed `latest.json` from this repository (`raw.githubusercontent.com`). That request carries the program's version in its User-Agent and nothing else about the user or their downloads. `doraptim update` does this when the user runs it. An optional setting, off by default, lets the engine do the same at most once a day; it can be turned off in Settings.
+The engine connects only to the sources the user or a local client asked for, including the redirects those sources require and, for a video the user chose, its stream pieces, its separate audio file, and the subtitles the user kept ticked. It does not contact any server of Tenkuryu Code for downloads. Checking for a newer engine reads a signed `latest.json` from the public `doraptim-releases` repository (`raw.githubusercontent.com`). That request carries the program's version in its User-Agent and nothing else about the user or their downloads. `doraptim update` does this when the user runs it. An optional setting, off by default, lets the engine do the same at most once a day; it can be turned off in Settings.
 
 When the user gives a page address instead of a file address, the extension opens that page in the user's own browser, and the page and its media come straight from that website to the device. Tenkuryu Code runs no intermediate server for this and never receives the address, the page, or the files. The address and the download's state are kept only in the local journal on the device. The journal is not encrypted: protect it with operating-system account permissions.
 

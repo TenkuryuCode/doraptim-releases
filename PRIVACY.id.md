@@ -1,10 +1,14 @@
 # Kebijakan Privasi
 
-Terakhir diperbarui: 3 November 2026
+Terakhir diperbarui: 4 November 2026
 
-DoRaptim berjalan sepenuhnya di komputer pengguna sendiri. Proyek ini tidak memiliki layanan akun, telemetri, analitik, periklanan, maupun proxy unduhan terpusat, dan tidak mengirimkan data apa pun kepada Tenkuryu Code.
+Engine, extension browser, aplikasi desktop, dan installer DoRaptim berjalan sepenuhnya di komputer pengguna sendiri. Komponen tersebut tidak mengirim telemetri atau analitik kepada Tenkuryu Code dan tidak memiliki layanan akun maupun proxy unduhan terpusat. Website publik DoRaptim dapat memakai Google Analytics untuk mengukur penggunaan website secara agregat.
 
 Halaman ini mencakup engine, extension browser, aplikasi desktop, dan installer.
+
+## Website publik
+
+Website publik DoRaptim memuat Google Analytics 4 pada build produksi. Google Analytics dapat memakai cookie atau penyimpanan browser serupa serta mengumpulkan kunjungan halaman, interaksi, perkiraan informasi geografis, informasi perangkat dan browser, dan informasi perujuk. Data tersebut dikirim kepada Google dan digunakan untuk memahami penggunaan website. Data tersebut tidak dipakai untuk mengidentifikasi atau menggabungkan pengunjung website dengan unduhan yang dilakukan melalui engine atau extension browser. Jangan memasukkan kredensial atau URL unduhan sensitif pada website.
 
 ## Apa yang ditangani oleh extension
 
@@ -36,7 +40,7 @@ Jurnal lokal dapat memuat URL yang bersifat sensitif karena sebagian situs menye
 
 ## Aktivitas jaringan
 
-Engine hanya terhubung ke sumber unduhan yang diminta oleh pengguna atau klien lokal, termasuk pengalihan (redirect) yang diperlukan oleh sumber tersebut serta, untuk video yang dipilih pengguna, potongan segmen stream-nya, berkas audio terpisahnya, dan berkas takarir yang dicentang pengguna. Engine tidak pernah menghubungi server milik Tenkuryu Code untuk proses pengunduhan. Pemeriksaan versi engine terbaru hanya membaca berkas `latest.json` bertanda tangan kriptografi dari repositori ini (`raw.githubusercontent.com`). Permintaan tersebut hanya membawa nomor versi program pada header User-Agent dan sama sekali tidak memuat informasi tentang pengguna maupun daftar unduhannya. Perintah `doraptim update` atau tombol pemeriksa pembaruan di aplikasi desktop menjalankan pemeriksaan ini saat diminta pengguna. Pengaturan opsional yang nonaktif secara bawaan memungkinkan engine memeriksa pembaruan maksimal satu kali sehari, dan dapat dimatikan kapan saja melalui halaman Pengaturan (Settings).
+Engine hanya terhubung ke sumber unduhan yang diminta oleh pengguna atau klien lokal, termasuk pengalihan (redirect) yang diperlukan oleh sumber tersebut serta, untuk video yang dipilih pengguna, potongan segmen stream-nya, berkas audio terpisahnya, dan berkas takarir yang dicentang pengguna. Engine tidak pernah menghubungi server milik Tenkuryu Code untuk proses pengunduhan. Pemeriksaan versi engine terbaru hanya membaca berkas `latest.json` bertanda tangan kriptografi dari repositori rilis publik `doraptim-releases` (`raw.githubusercontent.com`). Permintaan tersebut hanya membawa nomor versi program pada header User-Agent dan sama sekali tidak memuat informasi tentang pengguna maupun daftar unduhannya. Perintah `doraptim update` atau tombol pemeriksa pembaruan di aplikasi desktop menjalankan pemeriksaan ini saat diminta pengguna. Pengaturan opsional yang nonaktif secara bawaan memungkinkan engine memeriksa pembaruan maksimal satu kali sehari, dan dapat dimatikan kapan saja melalui halaman Pengaturan (Settings).
 
 Ketika pengguna memasukkan alamat halaman web (bukan alamat berkas langsung), engine atau extension membuka dan memeriksa halaman tersebut langsung dari perangkat pengguna sendiri, sehingga halaman beserta medianya mengalir langsung dari situs web sumber ke perangkat Anda. Tenkuryu Code tidak mengoperasikan server perantara untuk fitur ini dan tidak pernah menerima alamat tautan, isi halaman, maupun berkas yang diunduh. Alamat dan status unduhan hanya disimpan di dalam jurnal lokal pada perangkat Anda. Jurnal tersebut tidak dienkripsi; lindungi dengan pengaturan izin akun pada sistem operasi Anda.
 
@@ -55,4 +59,3 @@ Pengguna dapat menonaktifkan pengambilalihan unduhan otomatis pada extension, me
 ## Kontak
 
 Pertanyaan tentang privasi: buka issue di repositori ini. Masalah keamanan: gunakan tab *Security*, *Report a vulnerability*, bukan issue publik.
-

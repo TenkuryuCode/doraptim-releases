@@ -58,7 +58,10 @@ jobs:
           fi
 
           gh release download "$TAG" --pattern SHA256SUMS --dir "$RUNNER_TEMP/release"
-          sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out"
+          # This repository has no CHANGELOG.md, so the update notice's highlights come from the
+          # published release body.
+          gh release view "$TAG" --json body --jq .body > "$RUNNER_TEMP/release/notes.md"
+          sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out" "$RUNNER_TEMP/release/notes.md"
           if [ -n "${DORAPTIM_UPDATE_SIGNING_KEY:-}" ] && [ ! -f "$RUNNER_TEMP/out/latest.json.sig" ]; then
             echo "::error::signing was requested but latest.json.sig was not written"
             exit 1

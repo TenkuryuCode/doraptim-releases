@@ -8,14 +8,14 @@
 # The canonical copy is in the private repository, with its tests in scripts/tests.sh; the
 # downloads repository runs a copy of it when a release is published.
 #
-# usage: scripts/package-manifests.sh <version> <SHA256SUMS> <output directory>
+# usage: scripts/package-manifests.sh <version> <SHA256SUMS> <output directory> [release notes file]
 #
 # The checksums come from the release's SHA256SUMS, so run this only after the release is
 # published: the files point at its public download URLs.
 set -eu
 
-if [ $# -ne 3 ]; then
-    echo "usage: $0 <version> <SHA256SUMS> <output directory>" >&2
+if [ $# -lt 3 ] || [ $# -gt 4 ]; then
+    echo "usage: $0 <version> <SHA256SUMS> <output directory> [release notes file]" >&2
     exit 2
 fi
 version=$1
@@ -27,6 +27,26 @@ if ! printf '%s\n' "$version" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]
     exit 2
 fi
 [ -f "$sums" ] || { echo "cannot read $sums" >&2; exit 2; }
+
+script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+notes=
+if [ "$#" -eq 4 ]; then
+    [ -f "$4" ] || { echo "cannot read release notes file" >&2; exit 2; }
+    notes=$(cat "$4")
+elif [ -f "$script_dir/release-notes.sh" ] && [ -f "$script_dir/../CHANGELOG.md" ]; then
+    notes=$(sh "$script_dir/release-notes.sh" "$version")
+fi
+notes_json=
+if [ -n "$notes" ]; then
+    notes_json=$(printf '%s' "$notes" | node -e '
+const fs = require("fs");
+const lines = fs.readFileSync(0, "utf8").split(/\r?\n/).map(line => line.trim());
+const bullets = lines.filter(line => /^[-*] /.test(line)).map(line => line.slice(2));
+const paragraphs = lines.filter(line => line && !line.startsWith("#"));
+const summary = (bullets.length ? bullets : paragraphs).slice(0, 3).join(" ");
+process.stdout.write(JSON.stringify(Array.from(summary).slice(0, 1000).join("")));
+')
+fi
 
 repository=${DORAPTIM_RELEASE_REPOSITORY:-TenkuryuCode/doraptim-releases}
 releases="https://github.com/$repository"
@@ -212,6 +232,9 @@ esac
     printf '{\n'
     printf '  "version": "%s",\n' "$version"
     printf '  "channel": "%s",\n' "$channel"
+    if [ -n "$notes_json" ]; then
+        printf '  "notes": %s,\n' "$notes_json"
+    fi
     printf '  "protocol": 2,\n'
     printf '  "min_extension": "%s",\n' "$version"
     printf '  "min_engine": "%s",\n' "$version"
