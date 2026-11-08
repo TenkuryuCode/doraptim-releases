@@ -1,16 +1,17 @@
 {
-  "version": "0.1.1-beta.1",
+  "version": "0.1.1-beta.2",
   "channel": "beta",
+  "notes": "The desktop window is redesigned around the Laws of UX: a left sidebar holds the sections, the Downloads filters with their counts, and the engine, so the Downloads page is just a toolbar (**+ Add link**, which opens a dialog, search, and Clear completed) and the table; one labelled **Engine** menu replaces the unlabelled restart and stop buttons; with the engine off, the Downloads tab shows only a large **Start engine**; the Extension tab sums up the engine, browsers, and download folder in three cards with one **Connect Chrome** action and the same numbered connect steps as the extension. The Downloads table offers 500 rows per page and renders only the rows in view, so long lists stay quick; a running download's stage fits the Status column (\"Joining…\") with the full words in its tooltip. The first time the extension popup opens with the engine connected, a three-step tour explains it: Chrome downloads go to DoRaptim (and the switch that stops that), **Find videos** and **Find image",
   "protocol": 2,
-  "min_extension": "0.1.1-beta.1",
-  "min_engine": "0.1.1-beta.1",
+  "min_extension": "0.1.1-beta.2",
+  "min_engine": "0.1.1-beta.2",
   "assets": [
-    {"name": "doraptim-0.1.1-beta.1-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-aarch64-apple-darwin.tar.gz", "sha256": "0a512173fb2e0ab8cd852b9bb6df8da51976abe044c1237e11f3a6652822653c"},
-    {"name": "doraptim-0.1.1-beta.1-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-x86_64-apple-darwin.tar.gz", "sha256": "ecd76643caa68da7a67047cee79793ac01c565db306f2a5d5f545803d7762725"},
-    {"name": "doraptim-0.1.1-beta.1-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-x86_64-unknown-linux-gnu.tar.gz", "sha256": "5aae1fc2b52f8d1d0d402d727191ad66af4ea3913e35287258ac67df0b355b91"},
-    {"name": "doraptim-0.1.1-beta.1-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-x86_64-pc-windows-msvc.zip", "sha256": "fdf6eb2a1c8629283e7b32ec22dc694cf292122e1d737b49eb3e3274a9c84d50"},
-    {"name": "doraptim-0.1.1-beta.1-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-windows-x86_64-setup.exe", "sha256": "d8bde4133c801aba2f9844423c2b9b13a2af7db7b82b4953d391fab70a2c60e5"},
-    {"name": "doraptim-0.1.1-beta.1-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-macos-arm64.pkg", "sha256": "e44a276f9c704a00b5d15925e9e4f72119babcd1973c3fbdc935d40a6ba8e6d3"},
-    {"name": "doraptim-0.1.1-beta.1-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.1/doraptim-0.1.1-beta.1-macos-x86_64.pkg", "sha256": "ea832c8a08d50bef938957024d4226d31c946853a24bafc5999625b728514e7a"}
+    {"name": "doraptim-0.1.1-beta.2-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-aarch64-apple-darwin.tar.gz", "sha256": "d03e4360f82bf58d7d55cb2fbe1e7f05f50c990aa33955de8d68165fcc70c923"},
+    {"name": "doraptim-0.1.1-beta.2-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-x86_64-apple-darwin.tar.gz", "sha256": "38ea1a86327eb22e40f5908977378f3d89d2c57c25c6c09c1867eaeab0c9c95b"},
+    {"name": "doraptim-0.1.1-beta.2-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-x86_64-unknown-linux-gnu.tar.gz", "sha256": "101ad46a78eabf48e3ac88d76460cc286df92919b6ede5fbd7a341b15ed6d207"},
+    {"name": "doraptim-0.1.1-beta.2-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-x86_64-pc-windows-msvc.zip", "sha256": "0c284825b4fa6062af3303fde0b15419a7c991eff71291cf3a065363f9b1c9d1"},
+    {"name": "doraptim-0.1.1-beta.2-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-windows-x86_64-setup.exe", "sha256": "4fe884fb4147a765d8f5a9dd34853812a9ddb8473e0a800a72a5e2adf6953b5e"},
+    {"name": "doraptim-0.1.1-beta.2-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-macos-arm64.pkg", "sha256": "c42770aa9dd6a85b64894a45c52a33321cd4558debbddab9b1e07e927e263db9"},
+    {"name": "doraptim-0.1.1-beta.2-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.2/doraptim-0.1.1-beta.2-macos-x86_64.pkg", "sha256": "3034dab85983556f668426793ec6960edd5710461d08c78968667fb324e89501"}
   ]
 }
