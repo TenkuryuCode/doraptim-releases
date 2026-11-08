@@ -186,6 +186,10 @@ Scope: user
 InstallModes:
   - interactive
   - silent
+  - silentWithProgress
+InstallerSwitches:
+  Silent: /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ACCEPTTERMS
+  SilentWithProgress: /SILENT /SUPPRESSMSGBOXES /NORESTART /ACCEPTTERMS
 UpgradeBehavior: install
 ProductCode: '{A541FDF7-806D-4C72-AE94-D5C9C88C5708}_is1'
 Commands:
@@ -206,6 +210,11 @@ Publisher: Tenkuryu Code
 PublisherUrl: $website
 PublisherSupportUrl: $releases/issues
 PrivacyUrl: $website/en/privacy/
+Agreements:
+  - AgreementLabel: Terms of Use
+    AgreementUrl: $website/en/terms/
+  - AgreementLabel: Privacy Policy
+    AgreementUrl: $website/en/privacy/
 PackageName: DoRaptim
 PackageUrl: $website
 License: Proprietary
