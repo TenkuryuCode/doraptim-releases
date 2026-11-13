@@ -1,5 +1,5 @@
 {
-    "version": "0.1.1-beta.3",
+    "version": "0.1.1-beta.4",
     "description": "Download manager engine for the DoRaptim browser extension",
     "homepage": "https://doraptim.com",
     "license": {
@@ -8,9 +8,9 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.3/doraptim-0.1.1-beta.3-x86_64-pc-windows-msvc.zip",
-            "hash": "986d687d8991a93be67e37a84e6f7ee5d3f9e30571664f1c0c6fd223ae294bba",
-            "extract_dir": "doraptim-0.1.1-beta.3-x86_64-pc-windows-msvc"
+            "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.4/doraptim-0.1.1-beta.4-x86_64-pc-windows-msvc.zip",
+            "hash": "8e7ddb896626bb31de785acd15864239ccaa545a9f4b283d28532a1d15e1bfc0",
+            "extract_dir": "doraptim-0.1.1-beta.4-x86_64-pc-windows-msvc"
         }
     },
     "bin": "doraptim.exe",
