@@ -1,6 +1,6 @@
 # Privacy
 
-Last updated: 2026-11-04
+Last updated: 2026-11-14
 
 DoRaptim runs on the user's own computer. The engine, browser extension, desktop application, and installers do not send telemetry or analytics to Tenkuryu Code and have no account service or hosted download proxy. The public website may use Google Analytics to measure aggregate website usage.
 
@@ -34,13 +34,18 @@ The engine may process and store, in a SQLite journal on the device:
 - queue state, progress, retry state, destination category, and errors;
 - optional expected and computed SHA-256 values;
 - for a stream or a video with separate audio, the addresses of the qualities it offers, of its audio file, and of the subtitles offered with it, with their labels and languages;
-- the download folder and category subfolder names the user chose, a folder chosen for a single download, and the number of parallel downloads and speed limit the user set.
+- the download folder and category subfolder names the user chose, a folder chosen for a single download, and the number of parallel downloads and speed limit the user set;
+- the download hours the user set (days and local times) and whether "Wi‑Fi or cable only" is on.
 
 The journal can contain sensitive URLs, because some sites put tokens in them. Protect it with normal operating-system account permissions and do not share it. Referrers and user agents are used for the download and are not written to the journal. The daemon also keeps a private local file with a random access token, replaced at every start.
+
+When a download finishes, the engine puts the operating system's own "from the internet" mark on the file, as browsers do: the `com.apple.quarantine` attribute on macOS and the `Zone.Identifier` stream on Windows. The mark holds the time and the name DoRaptim, or the internet zone; it never holds the address or the page the file came from.
 
 ## Network activity
 
 The engine connects only to the sources the user or a local client asked for, including the redirects those sources require and, for a video the user chose, its stream pieces, its separate audio file, and the subtitles the user kept ticked. It does not contact any server of Tenkuryu Code for downloads. Checking for a newer engine reads a signed `latest.json` from the public `doraptim-releases` repository (`raw.githubusercontent.com`). That request carries the program's version in its User-Agent and nothing else about the user or their downloads. `doraptim update` does this when the user runs it. An optional setting, off by default, lets the engine do the same at most once a day; it can be turned off in Settings.
+
+When "Wi‑Fi or cable only" is on, the engine asks the operating system what kind of connection the computer uses, about every 30 seconds: on macOS, the network port of the default route (for example Wi‑Fi, Ethernet, or an iPhone over USB); on Windows, whether Windows counts the connection as metered. This is a question to the computer itself: nothing is sent over the network for it, and the answer is kept only in the engine's memory, not in the journal. With the setting off, the engine does not ask.
 
 When the user gives a page address instead of a file address, the extension opens that page in the user's own browser, and the page and its media come straight from that website to the device. Tenkuryu Code runs no intermediate server for this and never receives the address, the page, or the files. The address and the download's state are kept only in the local journal on the device. The journal is not encrypted: protect it with operating-system account permissions.
 

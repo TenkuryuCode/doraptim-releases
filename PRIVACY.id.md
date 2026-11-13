@@ -1,6 +1,6 @@
 # Kebijakan Privasi
 
-Terakhir diperbarui: 4 November 2026
+Terakhir diperbarui: 14 November 2026
 
 Engine, extension browser, aplikasi desktop, dan installer DoRaptim berjalan sepenuhnya di komputer pengguna sendiri. Komponen tersebut tidak mengirim telemetri atau analitik kepada Tenkuryu Code dan tidak memiliki layanan akun maupun proxy unduhan terpusat. Website publik DoRaptim dapat memakai Google Analytics untuk mengukur penggunaan website secara agregat.
 
@@ -34,13 +34,18 @@ Engine dapat memproses dan menyimpan informasi berikut di dalam jurnal SQLite lo
 - status antrean, progres segmen, status percobaan ulang (retry), kategori folder tujuan, dan catatan kesalahan;
 - nilai checksum SHA-256 yang diharapkan maupun yang telah dihitung;
 - untuk stream atau video dengan audio terpisah: alamat dari pilihan kualitas yang tersedia, alamat berkas audionya, serta alamat takarir (subtitle) yang disertakan beserta label dan bahasanya;
-- folder unduhan utama dan nama subfolder kategori yang dipilih pengguna, folder khusus yang dipilih untuk satu unduhan tertentu, serta jumlah unduhan paralel dan batas kecepatan yang diatur pengguna.
+- folder unduhan utama dan nama subfolder kategori yang dipilih pengguna, folder khusus yang dipilih untuk satu unduhan tertentu, serta jumlah unduhan paralel dan batas kecepatan yang diatur pengguna;
+- jam unduh yang diatur pengguna (hari dan jam lokal) serta apakah pengaturan "Wi‑Fi or cable only" aktif.
 
 Jurnal lokal dapat memuat URL yang bersifat sensitif karena sebagian situs menyertakan token sementara di dalam URL unduhan. Lindungi jurnal tersebut dengan izin akun sistem operasi Anda dan jangan membagikannya kepada pihak lain. Nilai perujuk (referrer) dan user-agent hanya digunakan selama proses pengunduhan dan tidak ditulis secara permanen ke dalam jurnal. Daemon lokal juga menyimpan berkas privat berisi token akses acak yang diganti setiap kali layanan dimulai ulang.
+
+Ketika sebuah unduhan selesai, engine memberi berkas tersebut tanda "berasal dari internet" milik sistem operasi, seperti yang dilakukan browser: atribut `com.apple.quarantine` di macOS dan stream `Zone.Identifier` di Windows. Tanda itu hanya memuat waktu dan nama DoRaptim, atau zona internet; tanda itu tidak pernah memuat alamat maupun halaman asal berkas.
 
 ## Aktivitas jaringan
 
 Engine hanya terhubung ke sumber unduhan yang diminta oleh pengguna atau klien lokal, termasuk pengalihan (redirect) yang diperlukan oleh sumber tersebut serta, untuk video yang dipilih pengguna, potongan segmen stream-nya, berkas audio terpisahnya, dan berkas takarir yang dicentang pengguna. Engine tidak pernah menghubungi server milik Tenkuryu Code untuk proses pengunduhan. Pemeriksaan versi engine terbaru hanya membaca berkas `latest.json` bertanda tangan kriptografi dari repositori rilis publik `doraptim-releases` (`raw.githubusercontent.com`). Permintaan tersebut hanya membawa nomor versi program pada header User-Agent dan sama sekali tidak memuat informasi tentang pengguna maupun daftar unduhannya. Perintah `doraptim update` atau tombol pemeriksa pembaruan di aplikasi desktop menjalankan pemeriksaan ini saat diminta pengguna. Pengaturan opsional yang nonaktif secara bawaan memungkinkan engine memeriksa pembaruan maksimal satu kali sehari, dan dapat dimatikan kapan saja melalui halaman Pengaturan (Settings).
+
+Ketika pengaturan "Wi‑Fi or cable only" aktif, engine menanyakan kepada sistem operasi jenis koneksi yang sedang dipakai komputer, kira-kira setiap 30 detik: di macOS, port jaringan dari rute bawaan (misalnya Wi‑Fi, Ethernet, atau iPhone lewat USB); di Windows, apakah Windows menganggap koneksi tersebut terukur (metered). Ini hanya pertanyaan kepada komputer itu sendiri: tidak ada data yang dikirim melalui jaringan untuk keperluan ini, dan jawabannya hanya disimpan di memori engine, tidak di dalam jurnal. Jika pengaturan tersebut nonaktif, engine tidak menanyakannya sama sekali.
 
 Ketika pengguna memasukkan alamat halaman web (bukan alamat berkas langsung), engine atau extension membuka dan memeriksa halaman tersebut langsung dari perangkat pengguna sendiri, sehingga halaman beserta medianya mengalir langsung dari situs web sumber ke perangkat Anda. Tenkuryu Code tidak mengoperasikan server perantara untuk fitur ini dan tidak pernah menerima alamat tautan, isi halaman, maupun berkas yang diunduh. Alamat dan status unduhan hanya disimpan di dalam jurnal lokal pada perangkat Anda. Jurnal tersebut tidak dienkripsi; lindungi dengan pengaturan izin akun pada sistem operasi Anda.
 
