@@ -9,7 +9,7 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 <!-- latest-downloads:start -->
 **Latest version: 0.1.1-beta.4** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.1-beta.4))
 
-The Chrome extension is installed from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk) (ID `opmbiaopegjjcijloalolfilhcpcbogk`).
+The extension is installed from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk) (ID `opmbiaopegjjcijloalolfilhcpcbogk`), or for Firefox from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/doraptim/).
 
 | Download | File |
 |---|---|
@@ -22,7 +22,7 @@ Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-relea
 
 ## Install
 
-DoRaptim has two parts: the **engine**, a small program on your computer that does the downloading, and the **Chrome extension**, which hands browser downloads to it. Install the engine in one of the two ways below, then the extension.
+DoRaptim has two parts: the **engine**, a small program on your computer that does the downloading, and the **browser extension** for Chrome or Firefox, which hands browser downloads to it. Install the engine in one of the two ways below, then the extension.
 
 ### Option 1: download the installer
 
@@ -61,13 +61,15 @@ Scoop connects the engine to your browsers by itself. **winget** (`winget instal
 
 The `.tar.gz` archives and `doraptim-<version>-x86_64-pc-windows-msvc.zip` contain only the engine program. Put it anywhere, then run `doraptim setup`.
 
-### Install the Chrome extension
+### Install the browser extension
 
-Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk). Its ID is `opmbiaopegjjcijloalolfilhcpcbogk`. The installer connects the engine only to that ID.
+**Chrome** (and Edge, Brave, Opera, Vivaldi): install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk). Its ID is `opmbiaopegjjcijloalolfilhcpcbogk`. The installer connects the engine only to that ID.
+
+**Firefox** (140 or later): install the add-on from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/doraptim/). The installer connects the engine to Firefox too, when Firefox is installed.
 
 Do not load an unpacked ZIP from an older GitHub release: that build has a different ID, and the engine will not talk to it.
 
-Chrome updates the Store listing by itself. Keep the engine on the same version. Some managed (work or school) browsers only allow extensions on an allow list: ask the administrator to allow `opmbiaopegjjcijloalolfilhcpcbogk`.
+Chrome and Firefox update the extension by themselves. Keep the engine on the same version. Some managed (work or school) browsers only allow extensions on an allow list: ask the administrator to allow `opmbiaopegjjcijloalolfilhcpcbogk`.
 
 ### The builds are not code-signed yet
 
@@ -79,8 +81,8 @@ Only do this for files downloaded from this repository's Releases page.
 ## Use
 
 - **Downloads from the browser** go to DoRaptim by itself once the extension is installed. A preview window lets you rename the file, choose where it goes, and start it; it then shows the progress.
-- **The popup** (the DoRaptim icon in Chrome's toolbar) lists the current downloads, adds a download from a link, and opens the **Downloads** page with every download, their details, and the settings.
-- **Videos:** choose **Find videos on this page** in the popup, or turn on **Find videos automatically** in the settings to get a **Download with DoRaptim** button on videos. Right-clicking a video or link also offers **Download with DoRaptim**. The button's menu lists the qualities to choose from. Supported: video and audio files, HLS streams (with a choice of quality, also encrypted with AES-128, and a separate audio track when the stream names one), DASH (`.mpd`) streams from 0.1.0-alpha.5, players that stream video and audio separately (joined into one MP4), and subtitle files, which are saved next to the video. Streams are saved as MP4, which plays in QuickTime and every other player.
+- **The popup** (the DoRaptim icon in the browser's toolbar) lists the current downloads, adds a download from a link, and opens the **Downloads** page with every download, their details, and the settings.
+- **Videos:** a **Download with DoRaptim** button appears on videos on popular video and social sites (such as TikTok, Instagram, Facebook, X, Bilibili, and Twitch) from install. **Find videos automatically** in the settings chooses where: **Off**, **Video sites** (the default), or **All sites**, which asks the browser first. On any page, **Find videos** in the popup lists what it has. Right-clicking a video or link also offers **Download with DoRaptim**. The button's menu lists the qualities to choose from. Supported: video and audio files, HLS streams (with a choice of quality, also encrypted with AES-128, and a separate audio track when the stream names one), DASH (`.mpd`) streams from 0.1.0-alpha.5, players that stream video and audio separately (joined into one MP4), and subtitle files, which are saved next to the video. Streams are saved as MP4, which plays in QuickTime and every other player.
 - **Not supported:** live streams, files on services that encrypt them end to end (such as MEGA), and services that protect their videos against copying (DRM) or do not allow downloading them, such as YouTube and Netflix. Download only what you have the right to download.
 
 ## Update
@@ -103,7 +105,7 @@ It stops the engine, removes it from your browsers, and deletes its download que
 
 **Scoop:** run `scoop uninstall doraptim`.
 
-Then remove the extension: open `chrome://extensions` and choose **Remove** on DoRaptim.
+Then remove the extension: open `chrome://extensions` (in Firefox, `about:addons`) and choose **Remove** on DoRaptim.
 
 ## Check a download
 
