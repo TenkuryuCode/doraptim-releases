@@ -15,6 +15,7 @@ import sys
 REPOSITORY = "https://github.com/TenkuryuCode/doraptim-releases"
 STORE = "https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk"
 STORE_ID = "opmbiaopegjjcijloalolfilhcpcbogk"
+FIREFOX = "https://addons.mozilla.org/firefox/addon/doraptim/"
 START = "<!-- latest-downloads:start -->"
 END = "<!-- latest-downloads:end -->"
 
@@ -30,7 +31,7 @@ def block(version: str) -> str:
         START,
         f"**Latest version: {version}** ([release notes]({REPOSITORY}/releases/tag/v{version}))",
         "",
-        f"The Chrome extension is installed from the [Chrome Web Store]({STORE}) (ID `{STORE_ID}`).",
+        f"The extension is installed from the [Chrome Web Store]({STORE}) (ID `{STORE_ID}`), or for Firefox from [addons.mozilla.org]({FIREFOX}).",
         "",
         "| Download | File |",
         "|---|---|",
