@@ -1,17 +1,17 @@
 # Keeps the Homebrew formula (Formula/), the Scoop manifest (bucket/), the winget manifests
 # (winget/), latest.json (and latest.json.sig when DORAPTIM_UPDATE_SIGNING_KEY is set), and the
-# README's download links in this repository up to date. Runs when a release is published, or
-# by hand for a given tag. scripts/package-manifests.sh is a copy of the one in the private
+# README's download links in this repository up to date for GitHub's Latest release.
+# Runs on a full release or by hand. scripts/package-manifests.sh is a copy of the one in the private
 # DoRaptim repository, where it is tested.
 name: package manifests
 
 on:
   release:
-    types: [published]
+    types: [released]
   workflow_dispatch:
     inputs:
       tag:
-        description: "Release tag, for example v0.1.0-beta.2"
+        description: "Tag of the published Latest release, for example v1.0.0"
         required: true
 
 permissions:
@@ -23,6 +23,7 @@ concurrency:
 
 jobs:
   update:
+    if: github.event_name == 'workflow_dispatch' || (github.event.release.draft == false && github.event.release.prerelease == false)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,11 +36,22 @@ jobs:
           TAG: ${{ github.event.release.tag_name || inputs.tag }}
           DORAPTIM_UPDATE_SIGNING_KEY: ${{ secrets.DORAPTIM_UPDATE_SIGNING_KEY }}
         run: |
+          latest_tag() {
+            gh api "repos/$GITHUB_REPOSITORY/releases/latest" \
+              --jq 'select(.draft == false and .prerelease == false) | .tag_name'
+          }
+
+          latest=$(latest_tag) || exit 1
+          if [ "$TAG" != "$latest" ]; then
+            echo "::notice::The requested tag is not GitHub's Latest release; nothing to do."
+            exit 0
+          fi
+
           version="${TAG#v}"
           current=$(sed -n 's/^  version "\(.*\)"$/\1/p' Formula/doraptim.rb 2>/dev/null || true)
           # Never replace a newer version, for example when an older release is published late.
           if [ -n "$current" ] && ! python3 - "$version" "$current" <<'PY'
-          import re, sys
+          import sys
           def key(text):
               core, _, pre = text.partition("-")
               parts = [int(n) for n in core.split(".")]
@@ -84,4 +96,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "packages: DoRaptim ${version}"
+
+          # Another release may have become Latest while this run was generating the files.
+          latest=$(latest_tag) || exit 1
+          if [ "$TAG" != "$latest" ]; then
+            echo "::notice::The release changed while generating manifests; nothing pushed."
+            exit 0
+          fi
           git push origin HEAD:main
