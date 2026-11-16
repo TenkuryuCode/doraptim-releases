@@ -7,17 +7,17 @@ Official downloads of DoRaptim, a download manager for your browser by Tenkuryu 
 ## Download
 
 <!-- latest-downloads:start -->
-**Latest version: 0.1.1-beta.5** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.1-beta.5))
+**Latest version: 0.1.1-beta.6** ([release notes](https://github.com/TenkuryuCode/doraptim-releases/releases/tag/v0.1.1-beta.6))
 
 The extension is installed from the [Chrome Web Store](https://chromewebstore.google.com/detail/opmbiaopegjjcijloalolfilhcpcbogk) (ID `opmbiaopegjjcijloalolfilhcpcbogk`), or for Firefox from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/doraptim/).
 
 | Download | File |
 |---|---|
-| Windows (64-bit) installer | [doraptim-0.1.1-beta.5-windows-x86_64-setup.exe](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.5/doraptim-0.1.1-beta.5-windows-x86_64-setup.exe) |
-| macOS installer, Apple Silicon (M1 or later) | [doraptim-0.1.1-beta.5-macos-arm64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.5/doraptim-0.1.1-beta.5-macos-arm64.pkg) |
-| macOS installer, Intel | [doraptim-0.1.1-beta.5-macos-x86_64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.5/doraptim-0.1.1-beta.5-macos-x86_64.pkg) |
+| Windows (64-bit) installer | [doraptim-0.1.1-beta.6-windows-x86_64-setup.exe](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-windows-x86_64-setup.exe) |
+| macOS installer, Apple Silicon (M1 or later) | [doraptim-0.1.1-beta.6-macos-arm64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-macos-arm64.pkg) |
+| macOS installer, Intel | [doraptim-0.1.1-beta.6-macos-x86_64.pkg](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-macos-x86_64.pkg) |
 
-Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.5/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
+Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
 <!-- latest-downloads:end -->
 
 ## System requirements
