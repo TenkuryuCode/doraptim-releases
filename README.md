@@ -20,6 +20,16 @@ The extension is installed from the [Chrome Web Store](https://chromewebstore.go
 Check the files with [SHA256SUMS](https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.5/SHA256SUMS). Every release, including older ones, is on the [Releases](https://github.com/TenkuryuCode/doraptim-releases/releases) page.
 <!-- latest-downloads:end -->
 
+## System requirements
+
+DoRaptim runs on these systems. Older versions are not supported.
+
+| System | Minimum | Processor | What you get |
+|---|---|---|---|
+| macOS | macOS 11 (Big Sur) or later | Apple Silicon (arm64) or 64-bit Intel (x86-64) | An installer with the engine and the desktop window |
+| Windows | Windows 10 or later | 64-bit Intel or AMD (x86-64) | An installer with the engine and the desktop window |
+| Linux | glibc 2.35 or later (Ubuntu 22.04 or newer) | 64-bit Intel or AMD (x86-64) | The engine as a `.tar.gz` archive, with no installer and no desktop window |
+
 ## Install
 
 DoRaptim has two parts: the **engine**, a small program on your computer that does the downloading, and the **browser extension** for Chrome or Firefox, which hands browser downloads to it. Install the engine in one of the two ways below, then the extension.
