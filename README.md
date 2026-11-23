@@ -102,7 +102,7 @@ Only do this for files downloaded from this repository's Releases page.
 
 ## Update
 
-**Installer (`.pkg` or `setup.exe`):** the engine checks for a new version once a day and, unless you turn it off in the settings, installs it by itself. This is on by default. The first time, and whenever the Terms of Use or Privacy Policy change, it waits until you have read and accepted them in the DoRaptim window. On macOS an update needs no administrator password, because the app is in your own `~/Applications` folder. You can also check by hand with `doraptim update`, or in the desktop window under **Engine**. Updates are read from `latest.json` on this repository's `main` branch (checked with `latest.json.sig` when the engine was built with a public key).
+**Installer (`.pkg` or `setup.exe`):** the engine checks for a new version once a day and, unless you turn it off in the settings, installs it by itself. This is on by default. When the Terms of Use or Privacy Policy change, it waits until you have read and accepted the new version in the DoRaptim window or the extension. On macOS an update needs no administrator password, because the app is in your own `~/Applications` folder. You can also check by hand with `doraptim update`, or in the desktop window under **Engine**. Updates are read from `latest.json` on this repository's `main` branch (checked with `latest.json.sig` when the engine was built with a public key).
 
 **Homebrew and Scoop** update through their own tools and never update themselves: `brew update && brew upgrade doraptim`, or `scoop update doraptim`.
 
