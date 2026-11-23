@@ -35,6 +35,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.event.release.tag_name || inputs.tag }}
           DORAPTIM_UPDATE_SIGNING_KEY: ${{ secrets.DORAPTIM_UPDATE_SIGNING_KEY }}
+          # This repository has no engine source to read the terms version from. Keep the variable
+          # equal to TERMS_VERSION in the private repository (engine/src/update/terms.rs).
+          DORAPTIM_TERMS_VERSION: ${{ vars.DORAPTIM_TERMS_VERSION || '1' }}
         run: |
           latest_tag() {
             gh api "repos/$GITHUB_REPOSITORY/releases/latest" \
@@ -73,6 +76,10 @@ jobs:
           # This repository has no CHANGELOG.md, so the update notice's highlights come from the
           # published release body.
           gh release view "$TAG" --json body --jq .body > "$RUNNER_TEMP/release/notes.md"
+          # The size of each release file bounds the engine's update download.
+          gh release view "$TAG" --json assets --jq '.assets[] | "\(.size) \(.name)"' > "$RUNNER_TEMP/release/sizes.txt"
+          [ -s "$RUNNER_TEMP/release/sizes.txt" ] || { echo "::error::the release lists no asset sizes"; exit 1; }
+          export DORAPTIM_ASSET_SIZES="$RUNNER_TEMP/release/sizes.txt"
           sh scripts/package-manifests.sh "$version" "$RUNNER_TEMP/release/SHA256SUMS" "$RUNNER_TEMP/out" "$RUNNER_TEMP/release/notes.md"
           if [ -n "${DORAPTIM_UPDATE_SIGNING_KEY:-}" ] && [ ! -f "$RUNNER_TEMP/out/latest.json.sig" ]; then
             echo "::error::signing was requested but latest.json.sig was not written"

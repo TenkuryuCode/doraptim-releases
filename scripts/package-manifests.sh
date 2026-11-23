@@ -10,6 +10,14 @@
 #
 # usage: scripts/package-manifests.sh <version> <SHA256SUMS> <output directory> [release notes file]
 #
+# Optional environment:
+#   DORAPTIM_ASSET_SIZES      a file with one "<bytes> <asset name>" line per release asset
+#                             (`gh release view <tag> --json assets --jq '.assets[] | "\(.size) \(.name)"'`).
+#                             latest.json then carries each asset's "size", which bounds the engine's
+#                             update download. Required; every listed asset must have a line.
+#   DORAPTIM_ALLOW_NO_SIZES   1 writes latest.json without sizes, for a local dry run only.
+#   DORAPTIM_TERMS_VERSION    the terms version, for a copy without the engine source.
+#
 # The checksums come from the release's SHA256SUMS, so run this only after the release is
 # published: the files point at its public download URLs.
 set -eu
@@ -229,6 +237,36 @@ ManifestType: defaultLocale
 ManifestVersion: 1.6.0
 YAML
 
+# The version of the Terms of Use and Privacy Policy this release asks users to accept. A higher
+# number than the one a user accepted stops silent self-update until they agree. The single source
+# is TERMS_VERSION in the engine (engine/src/update/terms.rs); a standalone copy of this script
+# without the source passes DORAPTIM_TERMS_VERSION instead. Without either, latest.json carries no
+# terms_version, which the engine reads as "terms unchanged".
+terms_version=${DORAPTIM_TERMS_VERSION-}
+terms_source="$script_dir/../engine/src/update/terms.rs"
+if [ -z "$terms_version" ] && [ -f "$terms_source" ]; then
+    terms_version=$(sed -n 's/^pub const TERMS_VERSION: u32 = \([0-9][0-9]*\);.*/\1/p' "$terms_source" | head -n 1)
+    [ -n "$terms_version" ] || { echo "cannot read TERMS_VERSION from $terms_source" >&2; exit 1; }
+fi
+if [ -n "$terms_version" ] && ! printf '%s\n' "$terms_version" | grep -Eq '^[1-9][0-9]{0,8}$'; then
+    echo "the terms version \"$terms_version\" is not a positive integer" >&2
+    exit 2
+fi
+[ -n "$terms_version" ] || echo "package-manifests: no terms version (set DORAPTIM_TERMS_VERSION); latest.json will not carry terms_version" >&2
+
+# Per-asset sizes. The engine never downloads more than the size the list names, so a release's
+# latest.json must give every asset one: without DORAPTIM_ASSET_SIZES the script fails. Only a
+# local dry run may set DORAPTIM_ALLOW_NO_SIZES=1 to write the list without sizes.
+asset_sizes=${DORAPTIM_ASSET_SIZES-}
+if [ -n "$asset_sizes" ]; then
+    [ -f "$asset_sizes" ] || { echo "cannot read $asset_sizes" >&2; exit 2; }
+elif [ "${DORAPTIM_ALLOW_NO_SIZES-}" = 1 ]; then
+    echo "package-manifests: DORAPTIM_ALLOW_NO_SIZES=1; latest.json will not carry size (dry run only)" >&2
+else
+    echo "package-manifests: set DORAPTIM_ASSET_SIZES to the release's size list (or DORAPTIM_ALLOW_NO_SIZES=1 for a local dry run)" >&2
+    exit 2
+fi
+
 # A signed latest.json is what `doraptim update` reads. The signature is written when
 # DORAPTIM_UPDATE_SIGNING_KEY (32-byte hex Ed25519 seed) is set; otherwise only the JSON.
 channel=stable
@@ -247,16 +285,29 @@ esac
     printf '  "protocol": 2,\n'
     printf '  "min_extension": "%s",\n' "$version"
     printf '  "min_engine": "%s",\n' "$version"
+    if [ -n "$terms_version" ]; then
+        printf '  "terms_version": %s,\n' "$terms_version"
+    fi
     printf '  "assets": [\n'
     first=1
     for file in "$mac_arm" "$mac_intel" "$linux" "$windows_zip" "$windows_setup" \
         "doraptim-$version-macos-arm64.pkg" "doraptim-$version-macos-x86_64.pkg" \
+        "DoRaptim-$version-macos-arm64.app.tar.gz" "DoRaptim-$version-macos-x86_64.app.tar.gz" \
         "doraptim-extension-$version-chrome.zip"; do
         hash=$(awk -v file="$file" '{ name = $2; sub(/^\*/, "", name); if (name == file) print $1 }' "$sums" || true)
         [ -n "$hash" ] || continue
+        size_json=
+        if [ -n "$asset_sizes" ]; then
+            size=$(awk -v file="$file" '$2 == file { print $1 }' "$asset_sizes")
+            if ! printf '%s\n' "$size" | grep -Eq '^[1-9][0-9]{0,15}$'; then
+                echo "$asset_sizes has no valid size for $file" >&2
+                exit 1
+            fi
+            size_json=", \"size\": $size"
+        fi
         [ "$first" = 1 ] || printf ',\n'
         first=0
-        printf '    {"name": "%s", "url": "%s/%s", "sha256": "%s"}' "$file" "$base" "$file" "$hash"
+        printf '    {"name": "%s", "url": "%s/%s", "sha256": "%s"%s}' "$file" "$base" "$file" "$hash" "$size_json"
     done
     printf '\n  ]\n}\n'
 } > "$out/latest.json"
