@@ -2,7 +2,7 @@
 
 Official downloads of DoRaptim, a download manager for your browser by Tenkuryu Code. The project website is [doraptim.com](https://doraptim.com). This repository only hosts the releases; the source code is private.
 
-> **Beta.** DoRaptim is still under active development. Do not rely on it for downloads that must not fail.
+> DoRaptim is under active development. Do not rely on it for downloads that must not fail.
 
 ## Download
 
@@ -44,6 +44,10 @@ DoRaptim has two parts: the **engine**, a small program on your computer that do
 
 Nothing else is needed: no Homebrew, no developer tools.
 
+**On macOS** the app is installed in your own `~/Applications` folder (`~/Applications/DoRaptim.app`, with the engine inside). The installer asks for your administrator password **once**, on this first install; later updates need no password. To use the `doraptim` command in Terminal, add `~/.local/bin` to your `PATH` (the installer links the command there), for example by adding `export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc`.
+
+**Coming from a beta?** Install 0.1.1 once by hand over the beta, as above. From then on the engine updates itself.
+
 ### Option 2: install with Homebrew (macOS, or Linux on x86-64)
 
 ```sh
@@ -57,6 +61,7 @@ doraptim setup
 - `doraptim setup` connects the engine to your browsers. Run it again if you install another browser later.
 - Homebrew needs up-to-date **Command Line Tools**. If it stops with *"Your Command Line Tools are too outdated"* (common right after a macOS upgrade), update them in *System Settings*, *General*, *Software Update*, or run `sudo rm -rf /Library/Developer/CommandLineTools` and then `sudo xcode-select --install`. Then run `brew install doraptim` again. Or use option 1, which does not need them.
 - To update later: `brew update && brew upgrade doraptim`.
+- **Do not mix the Homebrew install with the macOS installer (`.pkg`) on the same Mac.** You would get two separate `doraptim` commands, and each `doraptim setup` rewrites the browser registration so that it points at only one of them. Pick one. If you switch, uninstall the other first.
 
 ### On Windows, Scoop works too
 
@@ -97,19 +102,17 @@ Only do this for files downloaded from this repository's Releases page.
 
 ## Update
 
-To see whether a newer version is out, run `doraptim update` in a terminal (Command Prompt on Windows), or watch this repository's Releases. From 0.1.0-alpha.5 that command reads `latest.json` on this repository's `main` branch (and `latest.json.sig` when the engine was built with a public key). An optional setting, off by default, lets the engine do the same at most once a day. To update, install the new installer or package over the old one: it stops the running engine and replaces it. With Homebrew run `brew upgrade doraptim`, with Scoop `scoop update doraptim`. Chrome updates the extension from the Chrome Web Store by itself.
+**Installer (`.pkg` or `setup.exe`):** the engine checks for a new version once a day and, unless you turn it off in the settings, installs it by itself. This is on by default. The first time, and whenever the Terms of Use or Privacy Policy change, it waits until you have read and accepted them in the DoRaptim window. On macOS an update needs no administrator password, because the app is in your own `~/Applications` folder. You can also check by hand with `doraptim update`, or in the desktop window under **Engine**. Updates are read from `latest.json` on this repository's `main` branch (checked with `latest.json.sig` when the engine was built with a public key).
+
+**Homebrew and Scoop** update through their own tools and never update themselves: `brew update && brew upgrade doraptim`, or `scoop update doraptim`.
+
+Chrome and Firefox update the extension from their stores by themselves.
 
 ## Uninstall
 
 **Windows:** open *Settings*, *Apps*, *Installed apps*, choose **DoRaptim**, and *Uninstall*.
 
-**macOS:** open Terminal and run:
-
-```sh
-doraptim uninstall
-```
-
-It stops the engine, removes it from your browsers, and deletes its download queue, then shows the three `sudo` commands that remove the program itself. Your downloaded files are not touched. Add `--keep-data` to keep the queue.
+**macOS (installer):** open Terminal and run `doraptim uninstall` (if the command is not found, run `~/.local/bin/doraptim uninstall` or `~/Applications/DoRaptim.app/Contents/MacOS/doraptim uninstall`). It stops the engine, removes it from your browsers, asks whether to keep or delete the download queue, and removes `~/Applications/DoRaptim.app` and the `~/.local/bin/doraptim` command without a password. It asks for your administrator password only to clear what the installer keeps outside your home folder (the documents in `/usr/local/share/doc/doraptim` and the installer receipt, and the files of an older release). Your downloaded files are not touched. Add `--keep-data` to keep the queue, or `--remove-data` to delete it, without being asked.
 
 **Homebrew:** run `doraptim uninstall --yes`, then `brew uninstall doraptim`.
 
