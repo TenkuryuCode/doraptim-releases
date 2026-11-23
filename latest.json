@@ -1,17 +1,20 @@
 {
-  "version": "0.1.1-beta.6",
-  "channel": "beta",
-  "notes": "**Bstation (bilibili.tv)** shows each available resolution in Find videos and the player menu, with its duration, combined size, and matching audio. Audio-only scan results no longer appear as video, and the scanner prefers H.264 when the same quality is available in multiple codecs. **Subtitles from DASH manifests** are offered in the download window with the video, and the chosen ones are saved beside it as `.vtt` or `.srt` files. **Copy diagnostics** in the desktop window's About page and the extension's options Engine panel copies a report with the engine, extension, and desktop versions, the platform, each browser's registration, and recent failures. The report redacts credentials and user paths and shows URLs as scheme and host only. `doraptim diagnostics` prints the same report.",
+  "version": "0.1.1",
+  "channel": "stable",
+  "notes": "**Automatic engine updates:** DoRaptim checks once a day (on by default), downloads the signed update, and installs it when no download is running, or at once with Update now. It asks first when the Terms or Privacy Policy changed. On macOS the app now lives in your own Applications folder, so updates never ask for an admin password. **DoRaptim Pro:** a 3-day trial from the extension, paid licence activation on up to 3 devices, Judol Shield, right-click and copy unblocker, whole-series download, MP4 or audio-only conversion, and Free/Pro limits (queue folders and schedule hours are Pro). Buy on the website with email OTP and QRIS; the engine verifies the licence offline. **Android app:** share a link to download with the same engine, built-in browser with tabs and a floating bubble, Find media, Pro trial and licence (no in-app purchase), and an open-source licence list in Settings.",
   "protocol": 2,
-  "min_extension": "0.1.1-beta.6",
-  "min_engine": "0.1.1-beta.6",
+  "min_extension": "0.1.1",
+  "min_engine": "0.1.1",
+  "terms_version": 1,
   "assets": [
-    {"name": "doraptim-0.1.1-beta.6-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-aarch64-apple-darwin.tar.gz", "sha256": "2b42af21a546e7fca7ce2c66c8a61793dd6578ad0b7a985662df2f722a7f82f4"},
-    {"name": "doraptim-0.1.1-beta.6-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-x86_64-apple-darwin.tar.gz", "sha256": "ea1b3bb85c923e940b8623e472d668a85ead1ab1b0005536cc35218fa04cff08"},
-    {"name": "doraptim-0.1.1-beta.6-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-x86_64-unknown-linux-gnu.tar.gz", "sha256": "defa881bf7e5013067ccc9ae5ce6f4a75948e62a02ef641d70dd6e478def2c20"},
-    {"name": "doraptim-0.1.1-beta.6-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-x86_64-pc-windows-msvc.zip", "sha256": "27902f2322d4a00c7edbf1ffeaed1f252db1ebed80a12c60ef8ba9e92619e069"},
-    {"name": "doraptim-0.1.1-beta.6-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-windows-x86_64-setup.exe", "sha256": "44d02607fb25d440f48ae5766ff5f148026bc986514c17ead368dcd15542e23e"},
-    {"name": "doraptim-0.1.1-beta.6-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-macos-arm64.pkg", "sha256": "aa8a5b31796e7f55774d2f30b779050876f1e080eae4aa5769b3b69efff50408"},
-    {"name": "doraptim-0.1.1-beta.6-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1-beta.6/doraptim-0.1.1-beta.6-macos-x86_64.pkg", "sha256": "202bad31db025f4d7b9045211f65d524610501a7f536c611267e0f998ad36375"}
+    {"name": "doraptim-0.1.1-aarch64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-aarch64-apple-darwin.tar.gz", "sha256": "a23892d9dd40a77e674800664b8d78d8d03062e7f21122214ca05108d038f682", "size": 5547335},
+    {"name": "doraptim-0.1.1-x86_64-apple-darwin.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-x86_64-apple-darwin.tar.gz", "sha256": "7b6463fb98e895015158a5e1d79f8bd10a39207bb7ce4e403d4abf7d2a871125", "size": 6088339},
+    {"name": "doraptim-0.1.1-x86_64-unknown-linux-gnu.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-x86_64-unknown-linux-gnu.tar.gz", "sha256": "a6d5e34afbb3b0fd510fa1eeb4e985e4ca6051f0e95c9a138d02d4fd891c84fd", "size": 6057590},
+    {"name": "doraptim-0.1.1-x86_64-pc-windows-msvc.zip", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-x86_64-pc-windows-msvc.zip", "sha256": "9a84f442239be43819b79b84fd61e87840f99fb67ec8ff9ba5d7ba4ba213bff2", "size": 6131244},
+    {"name": "doraptim-0.1.1-windows-x86_64-setup.exe", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-windows-x86_64-setup.exe", "sha256": "6eb35f66db1e9eaa09e87823ca969aa92c3abee6a05872b8bfa3e25fe6d15cf6", "size": 9534264},
+    {"name": "doraptim-0.1.1-macos-arm64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-macos-arm64.pkg", "sha256": "5611669191718dabfe844c4ef459cdfbcd32ae42f99d2e3d0c18d5f8c89f5306", "size": 9804134},
+    {"name": "doraptim-0.1.1-macos-x86_64.pkg", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/doraptim-0.1.1-macos-x86_64.pkg", "sha256": "f0ae20e7e3c36e1308157c92c4a2235a08aaf61fdb9b03a0c52ca06adcffae32", "size": 10572625},
+    {"name": "DoRaptim-0.1.1-macos-arm64.app.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/DoRaptim-0.1.1-macos-arm64.app.tar.gz", "sha256": "126e4231c19f23bb5f30fb7df5c2ffdea460ccef117ad110e287d5f10fb08f14", "size": 9728000},
+    {"name": "DoRaptim-0.1.1-macos-x86_64.app.tar.gz", "url": "https://github.com/TenkuryuCode/doraptim-releases/releases/download/v0.1.1/DoRaptim-0.1.1-macos-x86_64.app.tar.gz", "sha256": "ba5d8e199ad9653152fd3a8fb3a8435b86c4080754e9e896c89dea1d62b674b1", "size": 10496000}
   ]
 }
